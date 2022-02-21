@@ -3,7 +3,7 @@
 
 //tree traversal function with any pointer-given action performed:
 void traverse(Node *root, body *(*action)(Node *chunk)){
-    Stack *stack = construct_stack(4);
+    Stack *stack = construct_stack(4, 'n');
     push(stack, root);
 
     while(!empty(stack)){
@@ -21,6 +21,6 @@ void traverse(Node *root, body *(*action)(Node *chunk)){
 
 // tree construction - get a whole system and divide it to a single or empty chunks:
 void construct_tree(long length, body *bodies, Node *root){
-    Stack *stack = construct_stack(4);
+    Stack *stack = construct_stack(4, 'b');
 
 }

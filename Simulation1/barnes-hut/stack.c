@@ -10,18 +10,29 @@ long (*opt)(long) = default_opt; // optimization function dependent on system's 
 
 // simple stack control functions:
 
-Stack *construct_stack(long cap){
+Stack *construct_stack(long cap, char type){
     Stack *st = (Stack *)malloc(sizeof(Stack));
     st->capacity = cap;
     st->size = 0;
-    st->items = (Node **)malloc(st->capacity*sizeof(Node));
+    if(type == 'b') {
+        (body **)(st->items);
+        st->items = (body **)malloc(st->capacity*sizeof(body));
+        st->type = 'b';
+    }
+    else
+    {
+        (Node *)st->items;
+        st->items = (Node *)malloc(st->capacity*sizeof(Node));
+        st->type = 'n';
+    }
 
     return st;
 }
 
 void extend_stack(Stack *st, long (*opt_fun)(long)){
     st->capacity = opt_fun(st->capacity); // memory-optimal extension (TODO)
-    st->items = (Node **)realloc(st->items, st->capacity*sizeof(Node));
+    if(st->type == 'n') st->items = (Node *)realloc(st->items, st->capacity*sizeof(Node));
+    else st->items = (body **)realloc(st->items, st->capacity*sizeof(body));
 }
 
 bool empty(Stack *st){
@@ -31,7 +42,7 @@ bool empty(Stack *st){
     return false;
 }
 
-void push(Stack *st, Node *new_item){
+void push(Stack *st, void *new_item){
     if(st->size == st->capacity){
         extend_stack(st, opt);
     }
@@ -39,7 +50,7 @@ void push(Stack *st, Node *new_item){
     st->items[++st->size] = new_item;
 }
 
-Node *pop(Stack *st){
+void *pop(Stack *st){
     if(!empty(st)){
         free(st->items); // only the empty stack is no longer needed
         return NULL;

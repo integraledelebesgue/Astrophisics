@@ -43,15 +43,16 @@ typedef struct node Node;
 typedef struct {
     long size;
     long capacity;
-    Node **items;
+    void **items;
+    char type;
 } Stack;
 
 long default_opt(long x);
-Stack *construct_stack(long cap);
+Stack *construct_stack(long cap, char type);
 void extend_stack(Stack *st, long (*opt_fun)(long));
 bool empty(Stack *st);
-void push(Stack *st, Node *new_item);
-Node *pop(Stack *st);
+void push(Stack *st, void *new_item);
+void *pop(Stack *st);
 
 
 //system:
