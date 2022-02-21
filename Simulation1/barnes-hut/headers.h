@@ -1,7 +1,11 @@
+#include <stdbool.h>
+
 #ifndef BARNES_HUT_HEADERS_H
 #define BARNES_HUT_HEADERS_H
 
 #endif //BARNES_HUT_HEADERS_H
+
+// basic data structures:
 
 typedef struct {
     double x;
@@ -12,6 +16,9 @@ typedef struct {
     double mass;
     point position;
 } body;
+
+
+// quadtree:
 
 struct node{
     int count;
@@ -30,7 +37,23 @@ struct node{
 
 typedef struct node Node;
 
+
+// stack:
+
 typedef struct {
-    long top;
+    long size;
+    long capacity;
     body **bodies;
 } Stack;
+
+long default_opt(long x);
+Stack *construct_stack(long cap);
+void extend_stack(Stack *st, long (*opt_fun)(long));
+bool empty(Stack *st);
+void push(Stack *st, body *new_bodies);
+body *pop(Stack *st);
+
+
+//system:
+body *construct_system(long length, double **state);
+void construct_tree(long length, body *bodies, Node *root);
