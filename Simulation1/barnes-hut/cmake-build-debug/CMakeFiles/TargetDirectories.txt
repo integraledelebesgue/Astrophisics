@@ -1,0 +1,3 @@
+/home/jsmolka/Programowanie/jupyterlab/astrophysics/Simulation1/barnes-hut/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/jsmolka/Programowanie/jupyterlab/astrophysics/Simulation1/barnes-hut/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/jsmolka/Programowanie/jupyterlab/astrophysics/Simulation1/barnes-hut/cmake-build-debug/CMakeFiles/barnes_hut.dir
