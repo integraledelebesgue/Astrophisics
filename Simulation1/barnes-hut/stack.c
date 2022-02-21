@@ -3,7 +3,7 @@
 #include<malloc.h>
 
 long default_opt(long x){
-    return (long)(1.25*(double)x);
+    return 2*x;
 }
 
 long (*opt)(long) = default_opt; // optimization function dependent on system's density, for balanced stack extending (TODO)
@@ -14,14 +14,14 @@ Stack *construct_stack(long cap){
     Stack *st = (Stack *)malloc(sizeof(Stack));
     st->capacity = cap;
     st->size = 0;
-    st->bodies = (body **)malloc(st->capacity*sizeof(body));
+    st->items = (Node **)malloc(st->capacity*sizeof(Node));
 
     return st;
 }
 
 void extend_stack(Stack *st, long (*opt_fun)(long)){
     st->capacity = opt_fun(st->capacity); // memory-optimal extension (TODO)
-    st->bodies = (body **)realloc(st->bodies, st->capacity*sizeof(body));
+    st->items = (Node **)realloc(st->items, st->capacity*sizeof(Node));
 }
 
 bool empty(Stack *st){
@@ -31,21 +31,21 @@ bool empty(Stack *st){
     return false;
 }
 
-void push(Stack *st, body *new_bodies){
+void push(Stack *st, Node *new_item){
     if(st->size == st->capacity){
         extend_stack(st, opt);
     }
 
-    st->bodies[++st->size] = new_bodies;
+    st->items[++st->size] = new_item;
 }
 
-body *pop(Stack *st){
+Node *pop(Stack *st){
     if(!empty(st)){
-        free(st->bodies); // only the empty stack is no longer needed
+        free(st->items); // only the empty stack is no longer needed
         return NULL;
     }
 
-    return st->bodies[st->size--];
+    return st->items[st->size--];
 }
 
 

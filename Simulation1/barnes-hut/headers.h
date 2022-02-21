@@ -25,7 +25,7 @@ struct node{
     double size;
     point centre;
 
-    body* bodies;
+    body** bodies; // pointer list
 
     struct node* NW;
     struct node* NE;
@@ -43,15 +43,15 @@ typedef struct node Node;
 typedef struct {
     long size;
     long capacity;
-    body **bodies;
+    Node **items;
 } Stack;
 
 long default_opt(long x);
 Stack *construct_stack(long cap);
 void extend_stack(Stack *st, long (*opt_fun)(long));
 bool empty(Stack *st);
-void push(Stack *st, body *new_bodies);
-body *pop(Stack *st);
+void push(Stack *st, Node *new_item);
+Node *pop(Stack *st);
 
 
 //system:
