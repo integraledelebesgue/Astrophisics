@@ -20,22 +20,23 @@ typedef struct {
 
 // quadtree:
 
-struct node{
+struct node_struct{
+    // TODO: parent->child->brothers representation for better memory efficiency
     int count;
     double size;
     point centre;
 
     body** bodies; // pointer list
 
-    struct node* NW;
-    struct node* NE;
-    struct node* SW;
-    struct node* SE;
+    struct node_struct* NW;
+    struct node_struct* NE;
+    struct node_struct* SW;
+    struct node_struct* SE;
 
-    struct node *Parent;
+    struct node_struct *Parent;
 };
 
-typedef struct node Node;
+typedef struct node_struct node;
 
 
 // stack:
@@ -44,17 +45,16 @@ typedef struct {
     long size;
     long capacity;
     void **items;
-    char type;
-} Stack;
+} stack;
 
 long default_opt(long x);
-Stack *construct_stack(long cap, char type);
-void extend_stack(Stack *st, long (*opt_fun)(long));
-bool empty(Stack *st);
-void push(Stack *st, void *new_item);
-void *pop(Stack *st);
+stack *construct_stack(long cap);
+void extend_stack(stack *st, long (*opt_fun)(long));
+bool empty(stack *st);
+void push(stack *st, void *new_item);
+void *pop(stack *st);
 
 
 //system:
 body *construct_system(long length, double **state);
-void construct_tree(long length, body *bodies, Node *root);
+void construct_tree(long length, body *bodies, node *root);

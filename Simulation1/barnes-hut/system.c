@@ -4,7 +4,7 @@
 #include "headers.h"
 
 
-// real type 2-dim raw state array to body type list:
+// double type 2-dim raw state array to body type list:
 body *construct_system(long length, double **state){
     body *bodies = (body *)malloc(length*sizeof(body));
 
