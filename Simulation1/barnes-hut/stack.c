@@ -11,6 +11,7 @@ long (*opt)(long) = default_opt; // optimization function dependent on system's 
 // simple universal stack control functions (any items stored must be void *):
 
 stack *construct_stack(long cap){
+    /// Allocates memory and returns a pointer to a stack.
     stack *st = (stack *)malloc(sizeof(stack));
     st->capacity = cap;
     st->size = 0;
@@ -20,6 +21,7 @@ stack *construct_stack(long cap){
 }
 
 void extend_stack(stack *st, long (*opt_fun)(long)){
+    /// Reallocates memory and expands the stack's capacity memory-optimally using opt_fun.
     st->capacity = opt_fun(st->capacity); // memory-optimal size extension (TODO)
     st->items = (void **)realloc(st->items, st->capacity*sizeof(void));
 }
@@ -30,6 +32,7 @@ bool empty(stack *st){
 }
 
 void push(stack *st, void *new_item){
+    /// Pushes all the possible types of elements, casted to a void *.
     if(st->size == st->capacity){
         extend_stack(st, opt);
     }
@@ -38,6 +41,7 @@ void push(stack *st, void *new_item){
 }
 
 void *pop(stack *st){
+    /// Pops an element. All the elements popped must be casted to a proper type.
     if(!empty(st)){
         free(st->items); // only the empty stack is no longer needed
         return NULL;
