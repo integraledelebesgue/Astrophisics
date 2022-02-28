@@ -1,6 +1,7 @@
 #include "headers.h"
 #include<stdbool.h>
 #include<malloc.h>
+#include<stdlib.h>
 
 long default_opt(long x){
     return 2*x; // optimal for quadtree traverse function

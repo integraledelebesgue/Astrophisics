@@ -22,11 +22,12 @@ typedef struct {
 
 struct node_struct{
     // TODO: parent->child->brothers representation for better memory efficiency
-    int count;
+    long count;
     double size;
     point centre;
+    body pseudo_body;
 
-    body** bodies; // pointer list
+    body *bodies; // pointer list
 
     struct node_struct* NW;
     struct node_struct* NE;
@@ -37,6 +38,11 @@ struct node_struct{
 };
 
 typedef struct node_struct node;
+
+void construct_tree(node *root);
+
+node *new_node(node *parent, body *bodies, long count, double size, point centre);
+void qualify(node *Node, stack *NW, stack *NE, stack *SW, stack *SE);
 
 
 // stack:
@@ -55,6 +61,12 @@ void push(stack *st, void *new_item);
 void *pop(stack *st);
 
 
+//physics:
+body compute_mass_centre(int count, body *bodies);
+point compute_force(body b1, body b2);
+double distance(point a, point b);
+
+
 //system:
-body *construct_system(long length, double **state);
-void construct_tree(long length, body *bodies, node *root);
+body *construct_body_list(long count, double **state);
+double **perform(long count, double **state)
