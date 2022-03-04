@@ -34,7 +34,7 @@ struct node_struct{
     struct node_struct* SW;
     struct node_struct* SE;
 
-    struct node_struct *Parent;
+    struct node_struct *parent;
 };
 
 typedef struct node_struct node;

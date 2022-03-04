@@ -22,8 +22,9 @@ void traverse(node *root, body *(*action)(node *chunk, point force)){
 node *new_node(node *parent, body *bodies, long count, double size, point centre){
     /// Allocate the memory for a new quadtree node, then write down the list of bodies to that node.
     node *child = (node *)malloc(sizeof(node));
-    child.parent = parent;
-    child->bodies = bodies; // TODO Allocation!
+    child->bodies = (body *)malloc(count*sizeof(body));
+    child->parent = parent;
+    child->bodies = bodies;
     child->count = count;
     child->size = size;
     child->centre = centre;
@@ -45,7 +46,7 @@ void construct_tree(node *root){
         stack *NW = construct_stack(2);
         stack *NE = construct_stack(2);
         stack *SW = construct_stack(2);
-        stack *NE = construct_stack(2);
+        stack *SE = construct_stack(2);
 
         qualify(curr, NW, NE, SW, SE);
 

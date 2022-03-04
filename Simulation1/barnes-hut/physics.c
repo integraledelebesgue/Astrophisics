@@ -1,5 +1,6 @@
 #include "headers.h"
 #include<math.h>
+#include<malloc.h>
 
 body compute_mass_centre(int count, body *bodies){
     /// Computes the centre of mass for the body list given.
@@ -14,14 +15,14 @@ body compute_mass_centre(int count, body *bodies){
     centre.x /= total_mass;
     centre.y /= total_mass;
 
-    body pseudobody = {.mass = total_mass, .centre = centre};
+    body pseudobody = {.mass = total_mass, .position = centre};
 
     return pseudobody;
 }
 
 point compute_force(body particle, body source){
     /// Returns a force vector representing gravity affected on "particle" by "source.
-    d = distance(particle.position, source.position);
+    double d = distance(particle.position, source.position);
 
     double scalar_force = 6.67*e-11*particle.mass*source.mass/(d*d);
 
@@ -35,7 +36,7 @@ double distance(point a, point b){
 }
 
 double **compute_forces(node *root, long length){
-    point *forces = (point *)malloc(count*sizeof(point));
+    point *forces = (point *)malloc(length*sizeof(point));
 
     for(long i = 0; i < length; i++){
         forces[i] = resultant_force(root, i); //TODO resultant force function

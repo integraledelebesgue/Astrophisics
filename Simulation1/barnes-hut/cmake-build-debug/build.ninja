@@ -96,6 +96,12 @@ build CMakeFiles/barnes_hut.dir/q-tree.c.o: C_COMPILER__barnes_hut_Debug /home/j
   OBJECT_DIR = CMakeFiles/barnes_hut.dir
   OBJECT_FILE_DIR = CMakeFiles/barnes_hut.dir
 
+build CMakeFiles/barnes_hut.dir/physics.c.o: C_COMPILER__barnes_hut_Debug /home/jsmolka/Programowanie/jupyterlab/astrophysics/Simulation1/barnes-hut/physics.c || cmake_object_order_depends_target_barnes_hut
+  DEP_FILE = CMakeFiles/barnes_hut.dir/physics.c.o.d
+  FLAGS = -g -std=gnu99
+  OBJECT_DIR = CMakeFiles/barnes_hut.dir
+  OBJECT_FILE_DIR = CMakeFiles/barnes_hut.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target barnes_hut
@@ -104,7 +110,7 @@ build CMakeFiles/barnes_hut.dir/q-tree.c.o: C_COMPILER__barnes_hut_Debug /home/j
 #############################################
 # Link the executable barnes_hut
 
-build barnes_hut: C_EXECUTABLE_LINKER__barnes_hut_Debug CMakeFiles/barnes_hut.dir/system.c.o CMakeFiles/barnes_hut.dir/python_interface.c.o CMakeFiles/barnes_hut.dir/stack.c.o CMakeFiles/barnes_hut.dir/q-tree.c.o
+build barnes_hut: C_EXECUTABLE_LINKER__barnes_hut_Debug CMakeFiles/barnes_hut.dir/system.c.o CMakeFiles/barnes_hut.dir/python_interface.c.o CMakeFiles/barnes_hut.dir/stack.c.o CMakeFiles/barnes_hut.dir/q-tree.c.o CMakeFiles/barnes_hut.dir/physics.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/barnes_hut.dir
   POST_BUILD = :
