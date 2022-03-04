@@ -64,9 +64,12 @@ void *pop(stack *st);
 //physics:
 body compute_mass_centre(int count, body *bodies);
 point compute_force(body b1, body b2);
+double **compute_forces(node *root, long count);
 double distance(point a, point b);
+point resultant_force(node *root, long i);
 
 
 //system:
 body *construct_body_list(long count, double **state);
-double **perform(long count, double **state)
+double **perform(long count, double **state);
+double **point_to_array(point *list, long length);

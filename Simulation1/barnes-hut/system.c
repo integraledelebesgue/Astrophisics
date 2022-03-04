@@ -18,7 +18,6 @@ body *construct_body_list(long count, double **state){
 
 double **perform(long count, double **state){
     /// Main function to compute forces from a state array given.
-    *forces = (double *)malloc(count*sizeof(double));
 
     node *root = (node *)malloc(sizeof(node));
     root->count = count;
@@ -28,7 +27,19 @@ double **perform(long count, double **state){
 
     construct_tree(root);
 
-    compute_forces(root->bodies, forces); //TODO - global force computation
+    double **forces = compute_forces(node *root, count); //TODO - global force computation
 
     return forces;
+}
+
+double **point_to_array(point *list, long length){
+    double **arr = (double **)malloc(length*sizeof(double));
+
+    for(long i = 0; i < length; i++){
+        arr[i] = (double *)malloc(2*sizeof(double));
+        arr[i][0] = point[i].x;
+        arr[i][1] = point[i].y;
+    }
+
+    return arr;
 }
