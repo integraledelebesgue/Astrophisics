@@ -17,6 +17,12 @@ typedef struct {
     point position;
 } body;
 
+typedef struct {
+    long size;
+    long capacity;
+    void **items;
+} stack;
+
 
 // quadtree:
 
@@ -35,6 +41,7 @@ struct node_struct{
     struct node_struct* SE;
 
     struct node_struct *parent;
+    long rank;
 };
 
 typedef struct node_struct node;
@@ -46,12 +53,6 @@ void qualify(node *Node, stack *NW, stack *NE, stack *SW, stack *SE);
 
 
 // stack:
-
-typedef struct {
-    long size;
-    long capacity;
-    void **items;
-} stack;
 
 long default_opt(long x);
 stack *construct_stack(long cap);

@@ -2,7 +2,7 @@
 #include<stdlib.h>
 
 //TODO: replace simple parent->children node structure with more memory-effective - parent->child->brothers
-void traverse(node *root, body *(*action)(node *chunk, point force)){
+void traverse(node *root, void (*action)(node *chunk, point force)){
     /// Traverses the quadtree with any pointer-given action function performed.
     stack *stack = construct_stack(4);
     push(stack, (void *)root);
@@ -50,8 +50,9 @@ void construct_tree(node *root){
 
         qualify(curr, NW, NE, SW, SE);
 
+        // TODO - zmienić sposób przekazywania punktu
         if(!empty(NW)){
-            curr->NW = new_node(curr, (body *)NW->items, NW->size, curr->size/2, point new_centre(curr->centre.x-(curr->size/4)), curr->centre.y+(curr->size/4)));
+            curr->NW = new_node(curr, (body *)NW->items, NW->size, curr->size/2, point new_centre{.x = (curr->centre.x-(curr->size/4)), .y = curr->centre.y+(curr->size/4)});
             free(NW->items);
             free(NW);
             if(curr->NW->count > 1) push(Stack, curr->NW);
