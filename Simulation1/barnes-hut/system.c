@@ -14,8 +14,6 @@ body *construct_body_list(int count, double **state){
     return bodies;
 }
 
-// TODO - theta parameter
-
 // TODO - Multithreading
 
 double **perform(int count, double **state, double accuracy){
