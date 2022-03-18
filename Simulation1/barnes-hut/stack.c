@@ -23,7 +23,7 @@ stack *construct_stack(int cap){
 
 void extend_stack(stack *st, int (*opt_fun)(int)){
     /// Reallocates memory and expands the stack's capacity memory-optimally using opt_fun.
-    st->capacity = opt_fun(st->capacity); // memory-optimal size extension (TODO)
+    st->capacity = opt_fun(st->capacity); // TODO: memory-optimal size extension
     st->items = (void **)realloc(st->items, st->capacity*sizeof(void));
 }
 
