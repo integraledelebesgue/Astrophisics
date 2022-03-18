@@ -35,17 +35,17 @@ double distance(vector a, vector b){
     return sqrt(pow((a.x - b.x), 2) + pow((a.y - b.y), 2));
 }
 
-double **compute_forces(node *root, long length){
-    vector *forces = (vector *)malloc(length*sizeof(vector));
+double **compute_forces(node *root, int count){
+    vector *forces = (vector *)malloc(count * sizeof(vector));
 
-    for(long i = 0; i < length; i++){
+    for(long i = 0; i < count; i++){
         forces[i] = resultant_force(root, i); //TODO resultant force function
     }
 
-    return point_to_array(forces, length); //TODO vector to array function
+    return point_to_array(forces, count); //TODO vector to array function
 }
 
-vector resultant_force(node *root, long i){
+vector resultant_force(node *root, int i){
     vector force;
 
 }

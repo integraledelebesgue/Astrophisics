@@ -18,8 +18,8 @@ typedef struct {
 } body;
 
 typedef struct {
-    long size;
-    long capacity;
+    int size;
+    int capacity;
     void **items;
 } stack;
 
@@ -28,7 +28,7 @@ typedef struct {
 
 struct node_struct{
     // TODO: parent->child->brothers representation for better memory efficiency
-    long count;
+    int count;
     double size;
     vector centre;
     body pseudo_body;
@@ -48,15 +48,15 @@ typedef struct node_struct node;
 
 void construct_tree(node *root);
 
-node *new_node(node *parent, body *bodies, long count, double size, vector centre);
+node *new_node(node *parent, body *bodies, int count, double size, vector centre);
 void qualify(node *Node, stack *NW, stack *NE, stack *SW, stack *SE);
 
 
 // stack:
 
-long default_opt(long x);
-stack *construct_stack(long cap);
-void extend_stack(stack *st, long (*opt_fun)(long));
+int default_opt(int x);
+stack *construct_stack(int cap);
+void extend_stack(stack *st, int (*opt_fun)(int));
 bool empty(stack *st);
 void push(stack *st, void *new_item);
 void *pop(stack *st);
@@ -65,12 +65,12 @@ void *pop(stack *st);
 //physics:
 body compute_mass_centre(int count, body *bodies);
 vector compute_force(body b1, body b2);
-double **compute_forces(node *root, long count);
+double **compute_forces(node *root, int count);
 double distance(vector a, vector b);
-vector resultant_force(node *root, long i);
+vector resultant_force(node *root, int i);
 
 
 //system:
-body *construct_body_list(long count, double **state);
-double **perform(long count, double **state);
-double **point_to_array(vector *list, long length);
+body *construct_body_list(int count, double **state);
+double **perform(int count, double **state);
+double **point_to_array(vector *list, int count);

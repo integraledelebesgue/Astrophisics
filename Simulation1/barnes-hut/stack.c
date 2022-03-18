@@ -3,15 +3,15 @@
 #include<malloc.h>
 #include<stdlib.h>
 
-long default_opt(long x){
+int default_opt(int x){
     return 2*x; // optimal for quadtree traverse function
 }
 
-long (*opt)(long) = default_opt; // optimization function dependent on system's density, for balanced stack extending (TODO)
+int (*opt)(int) = default_opt; // optimization function dependent on system's density, for balanced stack extending (TODO)
 
 // simple universal stack control functions (any items stored must be void *):
 
-stack *construct_stack(long cap){
+stack *construct_stack(int cap){
     /// Allocates memory and returns a pointer to a stack.
     stack *st = (stack *)malloc(sizeof(stack));
     st->capacity = cap;
@@ -21,7 +21,7 @@ stack *construct_stack(long cap){
     return st;
 }
 
-void extend_stack(stack *st, long (*opt_fun)(long)){
+void extend_stack(stack *st, int (*opt_fun)(int)){
     /// Reallocates memory and expands the stack's capacity memory-optimally using opt_fun.
     st->capacity = opt_fun(st->capacity); // memory-optimal size extension (TODO)
     st->items = (void **)realloc(st->items, st->capacity*sizeof(void));

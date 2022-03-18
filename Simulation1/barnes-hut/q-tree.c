@@ -19,7 +19,7 @@ void traverse(node *root, void (*action)(node *chunk, vector force)){
     }
 }
 
-node *new_node(node *parent, body *bodies, long count, double size, vector centre){
+node *new_node(node *parent, body *bodies, int count, double size, vector centre){
     /// Allocate the memory for a new quadtree node, then write down the list of bodies to that node.
     node *child = (node *)malloc(sizeof(node));
     child->bodies = (body *)malloc(count*sizeof(body));

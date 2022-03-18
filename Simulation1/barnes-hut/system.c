@@ -3,7 +3,7 @@
 #include<stdbool.h>
 #include "headers.h"
 
-body *construct_body_list(long count, double **state){
+body *construct_body_list(int count, double **state){
     /// Builds body-type objects list from 2-dim array of bodies' states taken from Python.
     body *bodies = (body *)malloc(count*sizeof(body));
 
@@ -18,12 +18,14 @@ body *construct_body_list(long count, double **state){
 
 // TODO - theta parameter
 
-double **perform(long count, double **state){
+double **perform(int count, double **state){
     /// Main function to compute forces from a state array given.
+
+    vector zero = {.x = 0, .y = 0};
 
     node *root = (node *)malloc(sizeof(node));
     root->count = count;
-    root->centre = vector zero {.x = 0, .y = 0};
+    root->centre = zero;
     root->bodies = construct_body_list(count, state);
     root->pseudo_body = compute_mass_centre(count, root->bodies);
 
@@ -34,10 +36,10 @@ double **perform(long count, double **state){
     return forces;
 }
 
-double **point_to_array(vector *list, long length){
-    double **arr = (double **)malloc(length*sizeof(double));
+double **point_to_array(vector *list, int count){
+    double **arr = (double **)malloc(count * sizeof(double));
 
-    for(long i = 0; i < length; i++){
+    for(long i = 0; i < count; i++){
         arr[i] = (double *)malloc(2*sizeof(double));
         arr[i][0] = list[i].x;
         arr[i][1] = list[i].y;
