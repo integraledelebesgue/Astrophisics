@@ -29,7 +29,7 @@ double **perform(int count, double **state, double accuracy){
 
     construct_tree(root);
 
-    double **forces = compute_forces(root, count); //TODO - global force computation
+    double **forces = compute_forces(root, count);
 
     return forces;
 }

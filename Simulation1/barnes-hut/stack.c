@@ -7,7 +7,7 @@ int default_opt(int x){
     return 2*x; // optimal for quadtree traverse function
 }
 
-int (*opt)(int) = default_opt; // optimization function dependent on system's density, for balanced stack extending (TODO)
+int (*opt)(int) = default_opt; // TODO: optimization function dependent on system's density, for balanced stack extending
 
 // simple universal stack control functions (any items stored must be void *):
 
