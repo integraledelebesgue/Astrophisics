@@ -35,17 +35,46 @@ double distance(vector a, vector b){
     return sqrt(pow((a.x - b.x), 2) + pow((a.y - b.y), 2));
 }
 
+void add(vector *to, vector from){
+    to->x += from.x;
+    to->y += from.y;
+}
+
 double **compute_forces(node *root, int count){
     vector *forces = (vector *)malloc(count * sizeof(vector));
 
-    for(long i = 0; i < count; i++){
-        forces[i] = resultant_force(root, i); //TODO resultant force function
+    for(int i = 0; i < count; i++){
+        forces[i] = resultant_force(root, i);
     }
 
-    return point_to_array(forces, count); //TODO vector to array function
+    return vector_to_array(forces, count);
 }
 
 vector resultant_force(node *root, int i){
-    vector force;
+    /// Go through all the bodies and calculate resultant force for each, traversing the quadtree.
+    stack *stack = construct_stack(4);
+    push(stack, (void *)root);
 
+    double scale;
+    double dist;
+    vector result;
+    node *curr;
+
+    while(!empty(stack)){
+        curr = (node *)pop(stack);
+        if(curr){
+            if(!(dist = distance(root->bodies[i].position, curr->pseudo_body.position))){
+                scale = curr->size/dist;
+                if(scale <= threshold) add(&result, compute_force(root->bodies[i], curr->pseudo_body));
+                else{
+                    if(curr->NW) push(stack, (void *)curr->NW);
+                    if(curr->NE) push(stack, (void *)curr->NE);
+                    if(curr->SW) push(stack, (void *)curr->SW);
+                    if(curr->SE) push(stack, (void *)curr->SE);
+                }
+            }
+        }
+    }
+
+    return result;
 }

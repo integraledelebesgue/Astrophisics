@@ -7,6 +7,8 @@
 
 // basic data structures:
 
+extern double threshold;
+
 typedef struct {
     double x;
     double y;
@@ -41,7 +43,6 @@ struct node_struct{
     struct node_struct* SE;
 
     struct node_struct *parent;
-    long rank;
 };
 
 typedef struct node_struct node;
@@ -49,7 +50,7 @@ typedef struct node_struct node;
 void construct_tree(node *root);
 
 node *new_node(node *parent, body *bodies, int count, double size, vector centre);
-void qualify(node *Node, stack *NW, stack *NE, stack *SW, stack *SE);
+void qualify(node *curr, stack *NW, stack *NE, stack *SW, stack *SE);
 
 
 // stack:
@@ -67,10 +68,11 @@ body compute_mass_centre(int count, body *bodies);
 vector compute_force(body b1, body b2);
 double **compute_forces(node *root, int count);
 double distance(vector a, vector b);
+void add(vector *to, vector from);
 vector resultant_force(node *root, int i);
 
 
 //system:
 body *construct_body_list(int count, double **state);
-double **perform(int count, double **state);
-double **point_to_array(vector *list, int count);
+double **perform(int count, double **state, double accuracy);
+double **vector_to_array(vector *list, int count);

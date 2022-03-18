@@ -2,7 +2,7 @@
 #include<stdlib.h>
 
 //TODO: replace simple parent->children node structure with more memory-effective - parent->child->brothers
-void traverse(node *root, void (*action)(node *chunk, vector force)){
+void traverse(node *root, void (*action)(node *chunk)){
     /// Traverses the quadtree with any pointer-given action function performed.
     stack *stack = construct_stack(4);
     push(stack, (void *)root);
@@ -36,6 +36,7 @@ node *new_node(node *parent, body *bodies, int count, double size, vector centre
 // tree construction - get a whole system and divide it to a single or empty chunks:
 void construct_tree(node *root){
     /// Construct the division quadtree from any system represented by a root node.
+    vector new_centre;
     stack *Stack = construct_stack(4);
 
     push(Stack, (void *)root);
@@ -50,30 +51,37 @@ void construct_tree(node *root){
 
         qualify(curr, NW, NE, SW, SE);
 
-        // TODO - zmienić sposób przekazywania punktu
         if(!empty(NW)){
-            curr->NW = new_node(curr, (body *)NW->items, NW->size, curr->size/2, point new_centre{.x = (curr->centre.x-(curr->size/4)), .y = curr->centre.y+(curr->size/4)});
+            new_centre.x = (curr->centre.x-(curr->size/4));
+            new_centre.y = curr->centre.y+(curr->size/4);
+            curr->NW = new_node(curr, (body *)NW->items, NW->size, curr->size/2, new_centre);
             free(NW->items);
             free(NW);
             if(curr->NW->count > 1) push(Stack, curr->NW);
         }
 
         if(!empty(NE)){
-            curr->NE = new_node(curr, (body *)NE->items, NE->size, curr->size/2, point new_centre(curr->centre.x+(curr->size/4)), curr->centre.y+(curr->size/4)));
+            new_centre.x = (curr->centre.x-(curr->size/4));
+            new_centre.y = curr->centre.y+(curr->size/4);
+            curr->NE = new_node(curr, (body *)NE->items, NE->size, curr->size/2, new_centre);
             free(NE->items);
             free(NE);
             if(curr->NE->count > 1) push(Stack, curr->NE);
         }
 
         if(!empty(SW)){
-            curr->SW = new_node(curr, (body *)SW->items, SW->size, curr->size/2, point new_centre(curr->centre.x-(curr->size/4)), curr->centre.y-(curr->size/4)));
+            new_centre.x = (curr->centre.x-(curr->size/4));
+            new_centre.y = curr->centre.y+(curr->size/4);
+            curr->SW = new_node(curr, (body *)SW->items, SW->size, curr->size/2, new_centre);
             free(SW->items);
             free(SW);
             if(curr->SW->count > 1) push(Stack, curr->SW);
         }
 
         if(!empty(SE)){
-            curr->SE = new_node(curr, (body *)SE->items, SE->size, curr->size/2, point new_centre(curr->centre.x+(curr->size/4)), curr->centre.y-(curr->size/4)));
+            new_centre.x = (curr->centre.x-(curr->size/4));
+            new_centre.y = curr->centre.y+(curr->size/4);
+            curr->SE = new_node(curr, (body *)SE->items, SE->size, curr->size/2, new_centre);
             free(SE->items);
             free(SE);
             if(curr->SE->count > 1) push(Stack, curr->SE);
@@ -81,11 +89,11 @@ void construct_tree(node *root){
     }
 }
 
-void qualify(node *Node, stack *NW, stack *NE, stack *SW, stack *SE){
-    for(int i = 0; i<Node->count; i++){
-        if(Node->bodies[i].position.x - Node->centre.x > 0 && Node->bodies[i].position.y - Node->centre.y > 0) push(NE, (void *)Node->bodies[i]);
-        if(Node->bodies[i].position.x - Node->centre.x > 0 && Node->bodies[i].position.y - Node->centre.y < 0) push(SE, (void *)Node->bodies[i]);
-        if(Node->bodies[i].position.x - Node->centre.x < 0 && Node->bodies[i].position.y - Node->centre.y > 0) push(NW, (void *)Node->bodies[i]);
-        if(Node->bodies[i].position.x - Node->centre.x < 0 && Node->bodies[i].position.y - Node->centre.y < 0) push(SW, (void *)Node->bodies[i]);
+void qualify(node *curr, stack *NW, stack *NE, stack *SW, stack *SE){
+    for(int i = 0; i < curr->count; i++){
+        if(curr->bodies[i].position.x - curr->centre.x > 0 && curr->bodies[i].position.y - curr->centre.y > 0) push(NE, (void *)&curr->bodies[i]);
+        if(curr->bodies[i].position.x - curr->centre.x > 0 && curr->bodies[i].position.y - curr->centre.y < 0) push(SE, (void *)&curr->bodies[i]);
+        if(curr->bodies[i].position.x - curr->centre.x < 0 && curr->bodies[i].position.y - curr->centre.y > 0) push(NW, (void *)&curr->bodies[i]);
+        if(curr->bodies[i].position.x - curr->centre.x < 0 && curr->bodies[i].position.y - curr->centre.y < 0) push(SW, (void *)&curr->bodies[i]);
     }
 }

@@ -1,6 +1,4 @@
-#include <math.h>
 #include <malloc.h>
-#include<stdbool.h>
 #include "headers.h"
 
 body *construct_body_list(int count, double **state){
@@ -18,9 +16,11 @@ body *construct_body_list(int count, double **state){
 
 // TODO - theta parameter
 
-double **perform(int count, double **state){
-    /// Main function to compute forces from a state array given.
+// TODO - Multithreading
 
+double **perform(int count, double **state, double accuracy){
+    /// Main function to compute forces from a state array given.
+    threshold = accuracy;
     vector zero = {.x = 0, .y = 0};
 
     node *root = (node *)malloc(sizeof(node));
@@ -36,7 +36,7 @@ double **perform(int count, double **state){
     return forces;
 }
 
-double **point_to_array(vector *list, int count){
+double **vector_to_array(vector *list, int count){
     double **arr = (double **)malloc(count * sizeof(double));
 
     for(long i = 0; i < count; i++){
