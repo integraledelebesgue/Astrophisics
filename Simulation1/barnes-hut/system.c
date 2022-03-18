@@ -37,6 +37,7 @@ double **perform(int count, double **state, double accuracy){
 }
 
 double **vector_to_array(vector *list, int count){
+    /// Transforms a list of vectors to a 2-dim real array.
     double **arr = (double **)malloc(count * sizeof(double));
 
     for(long i = 0; i < count; i++){
