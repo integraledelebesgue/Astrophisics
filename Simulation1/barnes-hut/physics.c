@@ -4,7 +4,7 @@
 
 body compute_mass_centre(int count, body *bodies){
     /// Computes the centre of mass for the body list given.
-    point centre;
+    vector centre;
     double total_mass;
     for(int i = 0; i<count; i++){
         centre.x = bodies[i].mass*bodies[i].position.x;
@@ -20,32 +20,32 @@ body compute_mass_centre(int count, body *bodies){
     return pseudobody;
 }
 
-point compute_force(body particle, body source){
+vector compute_force(body particle, body source){
     /// Returns a force vector representing gravity affected on "particle" by "source.
     double d = distance(particle.position, source.position);
 
-    double scalar_force = 6.67*e-11*particle.mass*source.mass/(d*d);
+    double scalar_force = pow(10, -11)*6.67*particle.mass*source.mass/(d*d);
 
-    point force_vector = {.x = scalar_force*(source.position.x - particle.position.x)/d, .y = scalar_force*(source.position.y - particle.position.y)/d};
+    vector force_vector = {.x = scalar_force*(source.position.x - particle.position.x)/d, .y = scalar_force*(source.position.y - particle.position.y)/d};
 
     return force_vector;
 }
 
-double distance(point a, point b){
+double distance(vector a, vector b){
     return sqrt(pow((a.x - b.x), 2) + pow((a.y - b.y), 2));
 }
 
 double **compute_forces(node *root, long length){
-    point *forces = (point *)malloc(length*sizeof(point));
+    vector *forces = (vector *)malloc(length*sizeof(vector));
 
     for(long i = 0; i < length; i++){
         forces[i] = resultant_force(root, i); //TODO resultant force function
     }
 
-    return point_to_array(forces, length); //TODO point to array function
+    return point_to_array(forces, length); //TODO vector to array function
 }
 
-point resultant_force(node *root, long i){
-    point force;
+vector resultant_force(node *root, long i){
+    vector force;
 
 }

@@ -16,12 +16,14 @@ body *construct_body_list(long count, double **state){
     return bodies;
 }
 
+// TODO - theta parameter
+
 double **perform(long count, double **state){
     /// Main function to compute forces from a state array given.
 
     node *root = (node *)malloc(sizeof(node));
     root->count = count;
-    root->centre = point zero {.x = 0, .y = 0};
+    root->centre = vector zero {.x = 0, .y = 0};
     root->bodies = construct_body_list(count, state);
     root->pseudo_body = compute_mass_centre(count, root->bodies);
 
@@ -32,7 +34,7 @@ double **perform(long count, double **state){
     return forces;
 }
 
-double **point_to_array(point *list, long length){
+double **point_to_array(vector *list, long length){
     double **arr = (double **)malloc(length*sizeof(double));
 
     for(long i = 0; i < length; i++){

@@ -2,7 +2,7 @@
 #include<stdlib.h>
 
 //TODO: replace simple parent->children node structure with more memory-effective - parent->child->brothers
-void traverse(node *root, void (*action)(node *chunk, point force)){
+void traverse(node *root, void (*action)(node *chunk, vector force)){
     /// Traverses the quadtree with any pointer-given action function performed.
     stack *stack = construct_stack(4);
     push(stack, (void *)root);
@@ -19,7 +19,7 @@ void traverse(node *root, void (*action)(node *chunk, point force)){
     }
 }
 
-node *new_node(node *parent, body *bodies, long count, double size, point centre){
+node *new_node(node *parent, body *bodies, long count, double size, vector centre){
     /// Allocate the memory for a new quadtree node, then write down the list of bodies to that node.
     node *child = (node *)malloc(sizeof(node));
     child->bodies = (body *)malloc(count*sizeof(body));

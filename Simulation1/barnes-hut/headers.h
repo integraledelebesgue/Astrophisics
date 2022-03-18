@@ -10,11 +10,11 @@
 typedef struct {
     double x;
     double y;
-} point;
+} vector;
 
 typedef struct {
     double mass;
-    point position;
+    vector position;
 } body;
 
 typedef struct {
@@ -30,7 +30,7 @@ struct node_struct{
     // TODO: parent->child->brothers representation for better memory efficiency
     long count;
     double size;
-    point centre;
+    vector centre;
     body pseudo_body;
 
     body *bodies; // pointer list
@@ -48,7 +48,7 @@ typedef struct node_struct node;
 
 void construct_tree(node *root);
 
-node *new_node(node *parent, body *bodies, long count, double size, point centre);
+node *new_node(node *parent, body *bodies, long count, double size, vector centre);
 void qualify(node *Node, stack *NW, stack *NE, stack *SW, stack *SE);
 
 
@@ -64,13 +64,13 @@ void *pop(stack *st);
 
 //physics:
 body compute_mass_centre(int count, body *bodies);
-point compute_force(body b1, body b2);
+vector compute_force(body b1, body b2);
 double **compute_forces(node *root, long count);
-double distance(point a, point b);
-point resultant_force(node *root, long i);
+double distance(vector a, vector b);
+vector resultant_force(node *root, long i);
 
 
 //system:
 body *construct_body_list(long count, double **state);
 double **perform(long count, double **state);
-double **point_to_array(point *list, long length);
+double **point_to_array(vector *list, long length);
