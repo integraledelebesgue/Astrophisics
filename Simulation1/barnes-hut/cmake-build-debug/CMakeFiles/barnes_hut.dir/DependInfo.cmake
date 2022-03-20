@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/main.c" "CMakeFiles/barnes_hut.dir/main.c.o" "gcc" "CMakeFiles/barnes_hut.dir/main.c.o.d"
   "/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/physics.c" "CMakeFiles/barnes_hut.dir/physics.c.o" "gcc" "CMakeFiles/barnes_hut.dir/physics.c.o.d"
-  "/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/python_interface.c" "CMakeFiles/barnes_hut.dir/python_interface.c.o" "gcc" "CMakeFiles/barnes_hut.dir/python_interface.c.o.d"
   "/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/q-tree.c" "CMakeFiles/barnes_hut.dir/q-tree.c.o" "gcc" "CMakeFiles/barnes_hut.dir/q-tree.c.o.d"
   "/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/stack.c" "CMakeFiles/barnes_hut.dir/stack.c.o" "gcc" "CMakeFiles/barnes_hut.dir/stack.c.o.d"
   "/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/system.c" "CMakeFiles/barnes_hut.dir/system.c.o" "gcc" "CMakeFiles/barnes_hut.dir/system.c.o.d"

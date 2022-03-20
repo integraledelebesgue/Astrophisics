@@ -50,7 +50,7 @@ typedef struct node_struct node;
 void construct_tree(node *root);
 void traverse(node *root, void (*action)(node *chunk));
 
-node *new_node(node *parent, body *bodies, int count, double size, vector centre);
+node *new_node(node *parent, stack* st, int count, double size, vector centre);
 void qualify(node *curr, stack *NW, stack *NE, stack *SW, stack *SE);
 
 
@@ -75,7 +75,11 @@ vector resultant_force(node *root, int i);
 
 //system:
 body *construct_body_list(int count, double **state);
-double **perform(double **state, int count, double accuracy);
+double **perform(double **state, int count, double accuracy, double radius);
 double **vector_to_array(vector *list, int count);
 void print_node(node *N);
 void print_array(double **arr, int n);
+
+
+
+void print_bodies(stack *st);

@@ -7,12 +7,15 @@ double threshold;
 body compute_mass_centre(int count, body *bodies){
     /// Computes the centre of mass for the body list given.
     vector centre;
-    double total_mass;
+    double total_mass = 0;
+
     for(int i = 0; i<count; i++){
         centre.x = bodies[i].mass*bodies[i].position.x;
         centre.y = bodies[i].mass*bodies[i].position.y;
         total_mass += bodies[i].mass;
     }
+
+    printf("Total mass of %d bodies: %lf\n", count, total_mass);
 
     centre.x /= total_mass;
     centre.y /= total_mass;

@@ -83,24 +83,10 @@ CMakeFiles/barnes_hut.dir/system.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/barnes_hut.dir/system.c.s"
 	/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/system.c -o CMakeFiles/barnes_hut.dir/system.c.s
 
-CMakeFiles/barnes_hut.dir/python_interface.c.o: CMakeFiles/barnes_hut.dir/flags.make
-CMakeFiles/barnes_hut.dir/python_interface.c.o: ../python_interface.c
-CMakeFiles/barnes_hut.dir/python_interface.c.o: CMakeFiles/barnes_hut.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/barnes_hut.dir/python_interface.c.o"
-	/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/barnes_hut.dir/python_interface.c.o -MF CMakeFiles/barnes_hut.dir/python_interface.c.o.d -o CMakeFiles/barnes_hut.dir/python_interface.c.o -c /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/python_interface.c
-
-CMakeFiles/barnes_hut.dir/python_interface.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/barnes_hut.dir/python_interface.c.i"
-	/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/python_interface.c > CMakeFiles/barnes_hut.dir/python_interface.c.i
-
-CMakeFiles/barnes_hut.dir/python_interface.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/barnes_hut.dir/python_interface.c.s"
-	/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/python_interface.c -o CMakeFiles/barnes_hut.dir/python_interface.c.s
-
 CMakeFiles/barnes_hut.dir/stack.c.o: CMakeFiles/barnes_hut.dir/flags.make
 CMakeFiles/barnes_hut.dir/stack.c.o: ../stack.c
 CMakeFiles/barnes_hut.dir/stack.c.o: CMakeFiles/barnes_hut.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/barnes_hut.dir/stack.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/barnes_hut.dir/stack.c.o"
 	/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/barnes_hut.dir/stack.c.o -MF CMakeFiles/barnes_hut.dir/stack.c.o.d -o CMakeFiles/barnes_hut.dir/stack.c.o -c /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/stack.c
 
 CMakeFiles/barnes_hut.dir/stack.c.i: cmake_force
@@ -114,7 +100,7 @@ CMakeFiles/barnes_hut.dir/stack.c.s: cmake_force
 CMakeFiles/barnes_hut.dir/q-tree.c.o: CMakeFiles/barnes_hut.dir/flags.make
 CMakeFiles/barnes_hut.dir/q-tree.c.o: ../q-tree.c
 CMakeFiles/barnes_hut.dir/q-tree.c.o: CMakeFiles/barnes_hut.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/barnes_hut.dir/q-tree.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/barnes_hut.dir/q-tree.c.o"
 	/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/barnes_hut.dir/q-tree.c.o -MF CMakeFiles/barnes_hut.dir/q-tree.c.o.d -o CMakeFiles/barnes_hut.dir/q-tree.c.o -c /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/q-tree.c
 
 CMakeFiles/barnes_hut.dir/q-tree.c.i: cmake_force
@@ -128,7 +114,7 @@ CMakeFiles/barnes_hut.dir/q-tree.c.s: cmake_force
 CMakeFiles/barnes_hut.dir/physics.c.o: CMakeFiles/barnes_hut.dir/flags.make
 CMakeFiles/barnes_hut.dir/physics.c.o: ../physics.c
 CMakeFiles/barnes_hut.dir/physics.c.o: CMakeFiles/barnes_hut.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/barnes_hut.dir/physics.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/barnes_hut.dir/physics.c.o"
 	/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/barnes_hut.dir/physics.c.o -MF CMakeFiles/barnes_hut.dir/physics.c.o.d -o CMakeFiles/barnes_hut.dir/physics.c.o -c /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/physics.c
 
 CMakeFiles/barnes_hut.dir/physics.c.i: cmake_force
@@ -139,22 +125,36 @@ CMakeFiles/barnes_hut.dir/physics.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/barnes_hut.dir/physics.c.s"
 	/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/physics.c -o CMakeFiles/barnes_hut.dir/physics.c.s
 
+CMakeFiles/barnes_hut.dir/main.c.o: CMakeFiles/barnes_hut.dir/flags.make
+CMakeFiles/barnes_hut.dir/main.c.o: ../main.c
+CMakeFiles/barnes_hut.dir/main.c.o: CMakeFiles/barnes_hut.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/barnes_hut.dir/main.c.o"
+	/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/barnes_hut.dir/main.c.o -MF CMakeFiles/barnes_hut.dir/main.c.o.d -o CMakeFiles/barnes_hut.dir/main.c.o -c /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/main.c
+
+CMakeFiles/barnes_hut.dir/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/barnes_hut.dir/main.c.i"
+	/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/main.c > CMakeFiles/barnes_hut.dir/main.c.i
+
+CMakeFiles/barnes_hut.dir/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/barnes_hut.dir/main.c.s"
+	/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/main.c -o CMakeFiles/barnes_hut.dir/main.c.s
+
 # Object files for target barnes_hut
 barnes_hut_OBJECTS = \
 "CMakeFiles/barnes_hut.dir/system.c.o" \
-"CMakeFiles/barnes_hut.dir/python_interface.c.o" \
 "CMakeFiles/barnes_hut.dir/stack.c.o" \
 "CMakeFiles/barnes_hut.dir/q-tree.c.o" \
-"CMakeFiles/barnes_hut.dir/physics.c.o"
+"CMakeFiles/barnes_hut.dir/physics.c.o" \
+"CMakeFiles/barnes_hut.dir/main.c.o"
 
 # External object files for target barnes_hut
 barnes_hut_EXTERNAL_OBJECTS =
 
 barnes_hut: CMakeFiles/barnes_hut.dir/system.c.o
-barnes_hut: CMakeFiles/barnes_hut.dir/python_interface.c.o
 barnes_hut: CMakeFiles/barnes_hut.dir/stack.c.o
 barnes_hut: CMakeFiles/barnes_hut.dir/q-tree.c.o
 barnes_hut: CMakeFiles/barnes_hut.dir/physics.c.o
+barnes_hut: CMakeFiles/barnes_hut.dir/main.c.o
 barnes_hut: CMakeFiles/barnes_hut.dir/build.make
 barnes_hut: CMakeFiles/barnes_hut.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable barnes_hut"

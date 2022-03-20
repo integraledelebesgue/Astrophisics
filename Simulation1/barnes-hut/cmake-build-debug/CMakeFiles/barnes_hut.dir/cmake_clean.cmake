@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/barnes_hut.dir/main.c.o"
+  "CMakeFiles/barnes_hut.dir/main.c.o.d"
   "CMakeFiles/barnes_hut.dir/physics.c.o"
   "CMakeFiles/barnes_hut.dir/physics.c.o.d"
-  "CMakeFiles/barnes_hut.dir/python_interface.c.o"
-  "CMakeFiles/barnes_hut.dir/python_interface.c.o.d"
   "CMakeFiles/barnes_hut.dir/q-tree.c.o"
   "CMakeFiles/barnes_hut.dir/q-tree.c.o.d"
   "CMakeFiles/barnes_hut.dir/stack.c.o"

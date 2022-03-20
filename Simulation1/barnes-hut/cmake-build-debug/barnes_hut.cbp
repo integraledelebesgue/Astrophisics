@@ -79,10 +79,10 @@
 		<Unit filename="/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/headers.h">
 			<Option target="barnes_hut"/>
 		</Unit>
-		<Unit filename="/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/physics.c">
+		<Unit filename="/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/main.c">
 			<Option target="barnes_hut"/>
 		</Unit>
-		<Unit filename="/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/python_interface.c">
+		<Unit filename="/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/physics.c">
 			<Option target="barnes_hut"/>
 		</Unit>
 		<Unit filename="/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/q-tree.c">

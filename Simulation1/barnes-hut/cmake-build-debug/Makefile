@@ -129,6 +129,30 @@ barnes_hut/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/barnes_hut.dir/build.make CMakeFiles/barnes_hut.dir/build
 .PHONY : barnes_hut/fast
 
+main.o: main.c.o
+.PHONY : main.o
+
+# target to build an object file
+main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/barnes_hut.dir/build.make CMakeFiles/barnes_hut.dir/main.c.o
+.PHONY : main.c.o
+
+main.i: main.c.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/barnes_hut.dir/build.make CMakeFiles/barnes_hut.dir/main.c.i
+.PHONY : main.c.i
+
+main.s: main.c.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/barnes_hut.dir/build.make CMakeFiles/barnes_hut.dir/main.c.s
+.PHONY : main.c.s
+
 physics.o: physics.c.o
 .PHONY : physics.o
 
@@ -152,30 +176,6 @@ physics.s: physics.c.s
 physics.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/barnes_hut.dir/build.make CMakeFiles/barnes_hut.dir/physics.c.s
 .PHONY : physics.c.s
-
-python_interface.o: python_interface.c.o
-.PHONY : python_interface.o
-
-# target to build an object file
-python_interface.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/barnes_hut.dir/build.make CMakeFiles/barnes_hut.dir/python_interface.c.o
-.PHONY : python_interface.c.o
-
-python_interface.i: python_interface.c.i
-.PHONY : python_interface.i
-
-# target to preprocess a source file
-python_interface.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/barnes_hut.dir/build.make CMakeFiles/barnes_hut.dir/python_interface.c.i
-.PHONY : python_interface.c.i
-
-python_interface.s: python_interface.c.s
-.PHONY : python_interface.s
-
-# target to generate assembly for a file
-python_interface.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/barnes_hut.dir/build.make CMakeFiles/barnes_hut.dir/python_interface.c.s
-.PHONY : python_interface.c.s
 
 q-tree.o: q-tree.c.o
 .PHONY : q-tree.o
@@ -258,12 +258,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... barnes_hut"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... physics.o"
 	@echo "... physics.i"
 	@echo "... physics.s"
-	@echo "... python_interface.o"
-	@echo "... python_interface.i"
-	@echo "... python_interface.s"
 	@echo "... q-tree.o"
 	@echo "... q-tree.i"
 	@echo "... q-tree.s"
