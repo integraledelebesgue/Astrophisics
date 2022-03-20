@@ -18,7 +18,7 @@ body *construct_body_list(int count, double **state){
 
 // TODO - Multithreading
 
-double **perform(int count, double **state, double accuracy){
+double **perform(double **state, int count, double accuracy){
     /// Main function to compute forces from a state array given.
     threshold = accuracy;
     vector zero = {.x = 0, .y = 0};

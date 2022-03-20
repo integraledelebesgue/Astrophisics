@@ -74,5 +74,5 @@ vector resultant_force(node *root, int i);
 
 //system:
 body *construct_body_list(int count, double **state);
-double **perform(int count, double **state, double accuracy);
+double **perform(double **state, int count, double accuracy);
 double **vector_to_array(vector *list, int count);
