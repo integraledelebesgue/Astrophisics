@@ -2,6 +2,8 @@
 #include<math.h>
 #include<malloc.h>
 
+double threshold;
+
 body compute_mass_centre(int count, body *bodies){
     /// Computes the centre of mass for the body list given.
     vector centre;

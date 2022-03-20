@@ -1,6 +1,8 @@
 #include <malloc.h>
 #include "headers.h"
 
+double threshold;
+
 body *construct_body_list(int count, double **state){
     /// Builds body-type objects list from 2-dim array of bodies' states taken from Python.
     body *bodies = (body *)malloc(count*sizeof(body));
