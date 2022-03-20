@@ -43,7 +43,7 @@ node *new_node(node *parent, stack *st, int count, double size, vector centre){
 }
 
 // tree construction - get a whole system and divide it into single or empty chunks:
-void construct_tree(node *root){
+void construct_tree(node *root){  // TODO: new division.
     /// Construct the division quadtree from any system represented by a root node.
     vector new_centre;
     node *curr = (node *)malloc(sizeof(node));
