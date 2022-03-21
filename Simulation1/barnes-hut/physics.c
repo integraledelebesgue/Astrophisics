@@ -45,49 +45,59 @@ void add(vector *to, vector from){
     to->y += from.y;
 }
 
-double **compute_forces(node *root, int count){
-    printf("Count: %d\n", count);
-    puts("Allocation..");
-    vector *forces = (vector *)malloc(count*sizeof(vector));
-    puts("  Array initialized!");
+void compute_forces(double **forces, node *root, int count){
+    //printf("Count: %d\n", count);
+    puts("Allocating force vectors..");
+    //vector *forces = (vector *)malloc(count*sizeof(vector));
+
+    vector *v_forces = (vector *)malloc(count*sizeof(vector));
+
+    puts("Force vectors initialized!");
 
     for(int i = 0; i < count; i++){
         puts("      In loop!");
-        forces[i] = resultant_force(root, i);
+        v_forces[i] = resultant_force(root, i);
     }
+
+    puts("Transforming vectors to array..");
+
+    forces = vector_to_array(v_forces, count);
+
+    free(v_forces);
 
     puts("Done!");
 
-    return vector_to_array(forces, count);
+    //return vector_to_array(forces, count);
 }
 
 vector resultant_force(node *root, int i){
     /// Go through all the bodies and calculate resultant force for each, traversing the quadtree.
-    stack *stack = construct_stack(4);
-    push(stack, (void *)root);
+    stack *Stack = (stack *)malloc(sizeof(stack));
+    construct_stack(Stack, 4);
+    push(Stack, (void *)root);
 
     double scale;
     double dist;
     vector result;
     node *curr;
 
-    while(!empty(stack)){
-        curr = (node *)pop(stack);
+    while(!empty(Stack)){
+        curr = (node *)pop(Stack);
         if(curr){
             if((dist = distance(root->bodies[i].position, curr->pseudo_body.position))){
                 scale = curr->size/dist;
                 if(scale <= threshold) add(&result, compute_force(root->bodies[i], curr->pseudo_body));
                 else{
-                    if(curr->NW) push(stack, (void *)curr->NW);
-                    if(curr->NE) push(stack, (void *)curr->NE);
-                    if(curr->SW) push(stack, (void *)curr->SW);
-                    if(curr->SE) push(stack, (void *)curr->SE);
+                    if(curr->NW) push(Stack, (void *)curr->NW);
+                    if(curr->NE) push(Stack, (void *)curr->NE);
+                    if(curr->SW) push(Stack, (void *)curr->SW);
+                    if(curr->SE) push(Stack, (void *)curr->SE);
                 }
             }
         }
     }
 
-    free(stack->items);
-    free(stack);
+    free(Stack->items);
+    free(Stack);
     return result;
 }

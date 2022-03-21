@@ -1,23 +1,31 @@
 #include "headers.h"
-#include<stdlib.h>
+//#include<stdlib.h>
 #include <stdio.h>
+#include<malloc.h>
+#include<stdbool.h>
 
 //TODO: replace simple parent->children node structure with more memory-effective - parent->child->brothers
 void traverse(node *root, void (*action)(node *chunk)){
     /// Traverses the quadtree with any pointer-given action function performed.
-    stack *stack = construct_stack(4);
-    push(stack, (void *)root);
+    stack *Stack = (stack *)malloc(sizeof(stack *));
 
-    while(!empty(stack)){
-        node *curr = (node *)pop(stack);
+    construct_stack(Stack, 5);
+
+    push(Stack, (void *)root);
+
+    while(!empty(Stack)){
+        node *curr = (node *)pop(Stack);
         if(curr){
             action(curr);
-            if(curr->NW) push(stack, (void *)curr->NW);
-            if(curr->NE) push(stack, (void *)curr->NE);
-            if(curr->SW) push(stack, (void *)curr->SW);
-            if(curr->SE) push(stack, (void *)curr->SE);
+            if(curr->NW) push(Stack, (void *)curr->NW);
+            if(curr->NE) push(Stack, (void *)curr->NE);
+            if(curr->SW) push(Stack, (void *)curr->SW);
+            if(curr->SE) push(Stack, (void *)curr->SE);
         }
     }
+
+    free(Stack->items);
+    free(Stack);
 }
 
 node *new_node(node *parent, stack *st, int count, double size, vector centre){
@@ -46,17 +54,26 @@ node *new_node(node *parent, stack *st, int count, double size, vector centre){
 void construct_tree(node *root){  // TODO: new division.
     /// Construct the division quadtree from any system represented by a root node.
     vector new_centre;
-    node *curr = (node *)malloc(sizeof(node));
-    stack *Stack = construct_stack(4);
+    node *curr;
+
+    stack *Stack = (stack *)malloc(sizeof(stack));
+    puts("Stack allocated");
+
+    construct_stack(Stack, 4);
 
     push(Stack, (void *)root);
 
     printf("Root: %d\n", root->count);
 
-    stack *NW = construct_stack(2);
-    stack *NE = construct_stack(2);
-    stack *SW = construct_stack(2);
-    stack *SE = construct_stack(2);
+    stack *NW = (stack *)malloc(sizeof(stack));
+    stack *NE = (stack *)malloc(sizeof(stack));
+    stack *SW = (stack *)malloc(sizeof(stack));
+    stack *SE = (stack *)malloc(sizeof(stack));
+
+    construct_stack(NW, 2);
+    construct_stack(NE, 2);
+    construct_stack(SW, 2);
+    construct_stack(SE, 2);
 
     while(!empty(Stack)){
         puts("In loop!");

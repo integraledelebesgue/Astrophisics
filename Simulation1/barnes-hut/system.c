@@ -5,17 +5,15 @@
 
 double threshold;
 
-body *construct_body_list(int count, double **state){
+void construct_body_list(node *root, int count, double **state){
     /// Builds body-type objects list from 2-dim array of bodies' states taken from Python.
-    body *bodies = (body *)malloc(count*sizeof(body));
+    //body *bodies = (body *)malloc(count*sizeof(body));
 
-    for(long i=0; i<count; i++){
-        bodies[i].mass = state[i][0];
-        bodies[i].position.x = state[i][1];
-        bodies[i].position.y = state[i][2];
+    for(int i=0; i<count; i++){
+        root->bodies[i].mass = state[i][0];
+        root->bodies[i].position.x = state[i][1];
+        root->bodies[i].position.y = state[i][2];
     }
-
-    return bodies;
 }
 
 // TODO - Multithreading
@@ -25,32 +23,53 @@ double **perform(double **state, int count, double accuracy, double radius){
     threshold = accuracy;
     vector zero = {.x = 0, .y = 0};
 
-    if(debug) puts("Main function running..");
+    puts("Main function running..");
 
     node *root = (node *)malloc(sizeof(node));
     root->count = count;
     root->centre = zero;
     root->size = radius;
-    root->bodies = construct_body_list(count, state);
+    //root->bodies = construct_body_list(count, state);
+
+    root->bodies = (body *)malloc(count * sizeof(body *));
+
+
+
+    puts("Constructing body list..");
+
+    construct_body_list(root, count, state);
+
     root->pseudo_body = compute_mass_centre(count, root->bodies);
 
-    if(debug) puts("Constructing tree..");
+    puts("Constructing tree..");
 
     construct_tree(root);
 
-    if(debug){
-        puts("Quadtree:");
-        traverse(root, print_node);
+
+    puts("Quadtree:");
+    traverse(root, print_node);
+
+
+    puts("Computing forces..");
+
+    //double **forces = compute_forces(root, count);
+    //vector *forces = (vector *)malloc(count * sizeof(vector *));
+
+    puts("Allocating forces array..");
+
+    double **forces = (double **)malloc(count*sizeof(double));
+    for(int i=0; i<count; i++){
+        forces[i] = (double *)malloc(2*sizeof(double));
     }
 
-    if(debug) puts("Computing forces..");
+    puts("Forces array ready! Computing forces..");
 
-    double **forces = compute_forces(root, count);
+    compute_forces(forces, root, count);
 
-    if(debug){
-        puts("Computation finished!");
-        print_array(forces, count);
-    };
+
+    puts("Computation finished!");
+    print_array(forces, count);
+
 
     //traverse(root, free);  // requires test, possibly not time-efficient.
 

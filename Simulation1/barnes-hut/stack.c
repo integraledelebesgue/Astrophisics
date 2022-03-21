@@ -11,15 +11,13 @@ int (*opt)(int) = default_opt; // TODO: optimization function dependent on syste
 
 // simple universal stack control functions (any items stored must be void *):
 
-stack *construct_stack(int cap){
+void construct_stack(stack *st, int cap){
     /// Allocates memory and returns a pointer to a stack.
     puts("  Constructing stack..");
-    stack *st = (stack *)malloc(sizeof(stack));
+    //stack *st = (stack *)malloc(sizeof(stack));
     st->capacity = cap;
     st->size = 0;
     st->items = (void *)malloc(cap*sizeof(void));
-
-    return st;
 }
 
 void extend_stack(stack *st, int (*opt_fun)(int)){

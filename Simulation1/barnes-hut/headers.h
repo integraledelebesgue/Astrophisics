@@ -57,7 +57,7 @@ void qualify(node *curr, stack *NW, stack *NE, stack *SW, stack *SE);
 // stack:
 
 int default_opt(int x);
-stack *construct_stack(int cap);
+void construct_stack(stack *st, int cap);
 void extend_stack(stack *st, int (*opt_fun)(int));
 bool empty(stack *st);
 void push(stack *st, void *new_item);
@@ -67,14 +67,14 @@ void *pop(stack *st);
 //physics:
 body compute_mass_centre(int count, body *bodies);
 vector compute_force(body b1, body b2);
-double **compute_forces(node *root, int count);
+void compute_forces(double **forces, node *root, int count);
 double distance(vector a, vector b);
 void add(vector *to, vector from);
 vector resultant_force(node *root, int i);
 
 
 //system:
-body *construct_body_list(int count, double **state);
+void construct_body_list(node *root, int count, double **state);
 double **perform(double **state, int count, double accuracy, double radius);
 double **vector_to_array(vector *list, int count);
 void print_node(node *N);
