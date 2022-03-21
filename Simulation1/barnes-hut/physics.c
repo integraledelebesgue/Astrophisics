@@ -46,11 +46,17 @@ void add(vector *to, vector from){
 }
 
 double **compute_forces(node *root, int count){
-    vector *forces = (vector *)malloc(count * sizeof(vector));
+    printf("Count: %d\n", count);
+    puts("Allocation..");
+    vector *forces = (vector *)malloc(count*sizeof(vector));
+    puts("  Array initialized!");
 
     for(int i = 0; i < count; i++){
+        puts("      In loop!");
         forces[i] = resultant_force(root, i);
     }
+
+    puts("Done!");
 
     return vector_to_array(forces, count);
 }
@@ -68,7 +74,7 @@ vector resultant_force(node *root, int i){
     while(!empty(stack)){
         curr = (node *)pop(stack);
         if(curr){
-            if(!(dist = distance(root->bodies[i].position, curr->pseudo_body.position))){
+            if((dist = distance(root->bodies[i].position, curr->pseudo_body.position))){
                 scale = curr->size/dist;
                 if(scale <= threshold) add(&result, compute_force(root->bodies[i], curr->pseudo_body));
                 else{
@@ -81,5 +87,7 @@ vector resultant_force(node *root, int i){
         }
     }
 
+    free(stack->items);
+    free(stack);
     return result;
 }

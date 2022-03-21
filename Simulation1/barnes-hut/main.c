@@ -6,7 +6,7 @@
 
 
 int main(void){
-    int count = 5;
+    int count = 10;
     int i;
 
     srand(time(NULL));
@@ -32,7 +32,7 @@ int main(void){
 
     double **forces;
 
-    forces = perform(state, count, 0.3, 100.0);
+    forces = perform(state, count, 0.2, 100.0);
 
 
     return 0;

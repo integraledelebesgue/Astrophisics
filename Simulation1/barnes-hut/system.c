@@ -52,6 +52,8 @@ double **perform(double **state, int count, double accuracy, double radius){
         print_array(forces, count);
     };
 
+    //traverse(root, free);  // requires test, possibly not time-efficient.
+
     return forces;
 }
 

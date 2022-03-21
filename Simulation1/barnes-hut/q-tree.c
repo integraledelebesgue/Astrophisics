@@ -53,6 +53,11 @@ void construct_tree(node *root){  // TODO: new division.
 
     printf("Root: %d\n", root->count);
 
+    stack *NW = construct_stack(2);
+    stack *NE = construct_stack(2);
+    stack *SW = construct_stack(2);
+    stack *SE = construct_stack(2);
+
     while(!empty(Stack)){
         puts("In loop!");
 
@@ -61,51 +66,55 @@ void construct_tree(node *root){  // TODO: new division.
         printf("%p\n", curr);
         printf("Current count: %d", curr->count);
 
-        stack *NW = construct_stack(2);
-        stack *NE = construct_stack(2);
-        stack *SW = construct_stack(2);
-        stack *SE = construct_stack(2);
-
         qualify(curr, NW, NE, SW, SE);
 
         puts("Qualified!");
 
         if(!empty(NW)){
-            new_centre.x = (curr->centre.x-(curr->size/2));
-            new_centre.y = (curr->centre.y+(curr->size/2));
+            new_centre.x = (curr->centre.x-(curr->size/4));
+            new_centre.y = (curr->centre.y+(curr->size/4));
             curr->NW = new_node(curr, NW, NW->size, curr->size/2, new_centre);
-            free(NW->items);
-            free(NW);
             if(curr->NW->count > 1) push(Stack, curr->NW);
         }
 
         if(!empty(NE)){
-            new_centre.x = (curr->centre.x+(curr->size/2));
-            new_centre.y = (curr->centre.y+(curr->size/2));
+            new_centre.x = (curr->centre.x+(curr->size/4));
+            new_centre.y = (curr->centre.y+(curr->size/4));
             curr->NE = new_node(curr, NE, NE->size, curr->size/2, new_centre);
-            free(NE->items);
-            free(NE);
             if(curr->NE->count > 1) push(Stack, curr->NE);
         }
 
         if(!empty(SW)){
-            new_centre.x = (curr->centre.x-(curr->size/2));
-            new_centre.y = (curr->centre.y-(curr->size/2));
+            new_centre.x = (curr->centre.x-(curr->size/4));
+            new_centre.y = (curr->centre.y-(curr->size/4));
             curr->SW = new_node(curr, SW, SW->size, curr->size/2, new_centre);
-            free(SW->items);
-            free(SW);
             if(curr->SW->count > 1) push(Stack, curr->SW);
         }
 
         if(!empty(SE)){
-            new_centre.x = (curr->centre.x+(curr->size/2));
-            new_centre.y = (curr->centre.y-(curr->size/2));
+            new_centre.x = (curr->centre.x+(curr->size/4));
+            new_centre.y = (curr->centre.y-(curr->size/4));
             curr->SE = new_node(curr, SE, SE->size, curr->size/2, new_centre);
-            free(SE->items);
-            free(SE);
             if(curr->SE->count > 1) push(Stack, curr->SE);
         }
+
+        puts("");
+        puts("QUADTREE:");
+        traverse(root, print_node);
+        puts("");
     }
+
+    free(NW->items);
+    free(NE->items);
+    free(SW->items);
+    free(SE->items);
+
+    free(NW);
+    free(NE);
+    free(SW);
+    free(SE);
+
+    free(curr);
 }
 
 void qualify(node *curr, stack *NW, stack *NE, stack *SW, stack *SE){
