@@ -59,6 +59,9 @@ void construct_tree(node *root){  // TODO: new division.
     stack *Stack = (stack *)malloc(sizeof(stack));
     puts("Stack allocated");
 
+    stack st;
+    stack *pst = &st;
+
     construct_stack(Stack, 4);
 
     push(Stack, (void *)root);

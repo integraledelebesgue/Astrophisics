@@ -14,10 +14,10 @@ int (*opt)(int) = default_opt; // TODO: optimization function dependent on syste
 void construct_stack(stack *st, int cap){
     /// Allocates memory and returns a pointer to a stack.
     puts("  Constructing stack..");
-    //stack *st = (stack *)malloc(sizeof(stack));
+    st = (stack *)malloc(sizeof(stack));
     st->capacity = cap;
     st->size = 0;
-    st->items = (void *)malloc(cap*sizeof(void));
+    st->items = (void **)malloc(cap*sizeof(void *));
 }
 
 void extend_stack(stack *st, int (*opt_fun)(int)){
@@ -25,7 +25,7 @@ void extend_stack(stack *st, int (*opt_fun)(int)){
     puts("  Reallocating..");
     //st->capacity = opt_fun(st->capacity); // TODO: memory-optimal size extension
     st->capacity = st->capacity*2;
-    st->items = (void **)realloc(st->items, st->capacity*sizeof(void **));
+    st->items = (void **)realloc(st->items, st->capacity*sizeof(void *));
 }
 
 bool empty(stack *st){
