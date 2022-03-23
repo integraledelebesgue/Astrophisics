@@ -3,7 +3,6 @@
 #include "Vector.h"
 #include "Node.h"
 #include<list>
-#include<random>
 #include<cmath>
 
 
@@ -19,7 +18,6 @@ void printArr(double **arr, int count){
 
 
 int main(){
-
     int i, count = 10;
     double *state[count];
 
@@ -52,13 +50,7 @@ int main(){
 
     Node root(100.0, Vector(), bodies);
 
-    printf("Count: %d, Center: (%lf, %lf), Radius: %lf\n", root.count, root.center.x, root.center.y, root.radius);
-    printf("Pseudobody: mass: %lf, position: (%lf, %lf)\n", root.pseudobody.mass, root.pseudobody.position.x, root.pseudobody.position.y);
-    cout << "Bodies: " << endl;
-
-    for(const auto &body : root.bodies){
-        printf("mass: %lf, position: (%lf, %lf)\n", body.mass, body.position.x, body.position.y);
-    }
+    root.traverse(printNode);
 
     return 0;
 }

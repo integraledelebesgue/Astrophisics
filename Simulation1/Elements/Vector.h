@@ -1,7 +1,3 @@
-//
-// Created by jsmolka on 23.03.2022.
-//
-
 #ifndef ELEMENTS_VECTOR_H
 #define ELEMENTS_VECTOR_H
 
@@ -15,10 +11,15 @@ public:
     Vector(double x_coord, double y_coord);
     Vector(const Vector &other);
     void operator += (const Vector &other);
+    void operator *= (const double &scalar);
 };
 
 Vector operator * (const double &scalar, const Vector &vec);
 Vector operator * (const Vector &vec, const double &scalar);
+Vector operator / (const Vector &vec, const double &scalar);
+Vector operator / (const double &scalar, const Vector &vec);
+
+Vector operator - (const Vector &vec1, const Vector &vec2);
 
 
 #endif //ELEMENTS_VECTOR_H

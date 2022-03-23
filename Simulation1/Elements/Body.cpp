@@ -17,7 +17,6 @@ Body::Body(const double params[3]){
 }
 
 void stateToBody(double **state, std::list<Body> &bodies, const int &count){
-    for(int i=0; i<count; i++){
+    for(int i=0; i<count; i++)
         bodies.emplace_back(state[i]);
-    }
 }

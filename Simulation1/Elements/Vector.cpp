@@ -20,23 +20,29 @@ void Vector::operator += (const Vector &other){
     y += other.y;
 }
 
+void Vector::operator *= (const double &scalar){
+    x *= scalar;
+    y *= scalar;
+}
+
+
 Vector operator * (const Vector &vec, const double &scalar){
-    return Vector(vec.x*scalar, vec.y*scalar);
+    return {vec.x*scalar, vec.y*scalar};
 }
 
 Vector operator * (const double &scalar, const Vector &vec){
-    return Vector(vec.x*scalar, vec.y*scalar);
+    return {vec.x*scalar, vec.y*scalar};
 }
 
-/*
- * Vector3D operator*(const Scalar& scalar, const Vector3D& vect)
-{
-  return Vector(scalar*vect.x(), scalar*vect.y(), scalar*vect.z());
+Vector operator / (const Vector &vec, const double &scalar){
+    return {vec.x/scalar, vec.y/scalar};
 }
 
-template <typename Scalar>
-Vector3D operator*(const Vector3D& vect, const Scalar& scalar)
-{
-  return scalar*vect;
+Vector operator / (const double &scalar, const Vector &vec){
+    return {vec.x/scalar, vec.y/scalar};
 }
- */
+
+Vector operator - (const Vector &vec1, const Vector &vec2){
+    return {vec2.x - vec1.x, vec2.y - vec1.y};
+}
+

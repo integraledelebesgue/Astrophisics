@@ -19,13 +19,16 @@ public:
     Node *SW;
     Node *SE;
 
-    //Node();
+    Node();
     Node(const Node &other);
     Node(const int &Count, const double &Radius, const Vector &Center, const std::list<Body> &Bodies, const Body &Pseudobody);
     Node(const double &Radius, const Vector &Center, const std::list<Body> &Bodies);
 
-    Body findMassCenter(const Node &node);
+    static Body findMassCenter(const Node &node);
+    void traverse(void (*foo)(const Node &node)) const;
 };
+
+void printNode(const Node &node);
 
 
 #endif //ELEMENTS_NODE_H
