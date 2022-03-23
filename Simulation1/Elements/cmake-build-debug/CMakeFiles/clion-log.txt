@@ -1,0 +1,4 @@
+/home/jsmolka/Pobrane/CLion-2021.3.3/clion-2021.3.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/jsmolka/Pobrane/CLion-2021.3.3/clion-2021.3.3/bin/ninja/linux/ninja -DCMAKE_C_COMPILER=/bin/gcc -G Ninja /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/cmake-build-debug

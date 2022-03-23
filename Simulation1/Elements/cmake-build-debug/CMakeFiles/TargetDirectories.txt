@@ -1,0 +1,3 @@
+/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/cmake-build-debug/CMakeFiles/Elements.dir
