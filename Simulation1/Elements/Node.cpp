@@ -89,7 +89,7 @@ void printNode(const Node &node){
     printf("Bodies: \n");
 
     for(const auto &body : node.bodies)
-        printf("mass: %lf, position: (%lf, %lf)\n", body.mass, body.position.x, body.position.y);
+        printf("[%lf, %lf, %lf]\n", body.mass, body.position.x, body.position.y);
 
     printf("}\n");
 }

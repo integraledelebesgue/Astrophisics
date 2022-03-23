@@ -49,4 +49,3 @@ Vector operator - (const Vector &vec1, const Vector &vec2){
 Vector operator + (const Vector &vec1, const Vector &vec2){
     return {vec2.x + vec1.x, vec2.y + vec1.y};
 }
-

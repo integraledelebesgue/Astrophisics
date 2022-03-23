@@ -6,8 +6,6 @@
 #include<list>
 #include<cmath>
 
-
-
 using namespace std;
 
 void printArr(double **arr, int count){
@@ -67,6 +65,8 @@ int main(){
     cout << "Constructing tree.." << endl;
 
     constructTree(root);
+
+    cout << "Tree constructed!" << endl;
 
     root.traverse(printNode);
 

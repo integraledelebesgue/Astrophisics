@@ -18,32 +18,41 @@ void constructTree(Node &root){
     while(!Stack.empty()){
         cout << "In loop..";
         curr = Stack.top();
-        Stack.pop();
 
         qualifyBodies(curr, NW, NE, SW, SE);
+        Stack.pop();
 
         if(!NW.empty()){
-            curr->NW = new Node(curr->radius/2, curr->center - Vector(curr->radius/4, (-1)*curr->radius/4), NW);
+            curr->NW = new Node(curr->radius/2, curr->center - Vector(curr->radius/2, (-1)*curr->radius/2), NW);
             if(NW.size() > 1) Stack.push(curr->NW);
             NW.clear();
+            cout << "-- New node: --" << endl;
+            printNode(*curr->NW);
         }
 
         if(!NE.empty()){
-            curr->NE = new Node(curr->radius/2, curr->center + Vector(curr->radius/4, curr->radius/4), NE);
+            curr->NE = new Node(curr->radius/2, curr->center + Vector(curr->radius/2, curr->radius/2), NE);
             if(NE.size() > 1) Stack.push(curr->NE);
             NE.clear();
+            cout << "-- New node: --" << endl;
+            printNode(*curr->NE);
+
         }
 
         if(!SW.empty()){
-            curr->SW = new Node(curr->radius/2, curr->center - Vector(curr->radius/4, curr->radius/4), SW);
+            curr->SW = new Node(curr->radius/2, curr->center - Vector(curr->radius/2, curr->radius/2), SW);
             if(SW.size() > 1) Stack.push(curr->SW);
             SW.clear();
+            cout << "-- New node: --" << endl;
+            printNode(*curr->SW);
         }
 
         if(!SE.empty()){
-            curr->SE = new Node(curr->radius/2, curr->center - Vector(curr->radius/4, curr->radius/4), SE);
+            curr->SE = new Node(curr->radius/2, curr->center - Vector((-1)*curr->radius/2, curr->radius/2), SE);
             if(SE.size() > 1) Stack.push(curr->SE);
             SE.clear();
+            cout << "-- New node: --" << endl;
+            printNode(*curr->SE);
         }
     }
 }
@@ -56,11 +65,11 @@ void qualifyBodies(Node *curr, list<Body> &NW, list<Body> &NE, list<Body> &SW, l
     cout << endl;
 
     for(const auto &body : curr->bodies){
-        position = curr->center - body.position;
+        position = body.position - curr->center;
 
         if(position.x < 0 && position.y > 0) NW.emplace_back(body);
-        else if(position.x > 0 && position.y > 0) NE.emplace_back(body);
-        else if(position.x < 0 && position.y < 0) SW.emplace_back(body);
+        else if(position.x >= 0 && position.y >= 0) NE.emplace_back(body);
+        else if(position.x <= 0 && position.y <= 0) SW.emplace_back(body);
         else if(position.x > 0 && position.y < 0) SE.emplace_back(body);
     }
 }
