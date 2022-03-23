@@ -2,8 +2,10 @@
 #include "Body.h"
 #include "Vector.h"
 #include "Node.h"
+#include "Quadtree.h"
 #include<list>
 #include<cmath>
+
 
 
 using namespace std;
@@ -18,7 +20,7 @@ void printArr(double **arr, int count){
 
 
 int main(){
-    int i, count = 10;
+    int i, count = 5;
     double *state[count];
 
     srandom(time(nullptr));
@@ -46,9 +48,25 @@ int main(){
 
     for(i=0; i<count; i++) delete(state[i]);
 
+    list<Body> test;
+    test.emplace_back(100, Vector(-1, -5));
+
+    //Node *node = new Node(1.0, Vector(), test);
+
+    //test.pop_back();
+
+    //printNode(*node);
+
+
     cout << endl << "Root node:" << endl;
 
     Node root(100.0, Vector(), bodies);
+
+    root.traverse(printNode);
+
+    cout << "Constructing tree.." << endl;
+
+    constructTree(root);
 
     root.traverse(printNode);
 

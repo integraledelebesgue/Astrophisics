@@ -18,8 +18,8 @@ Vector operator * (const double &scalar, const Vector &vec);
 Vector operator * (const Vector &vec, const double &scalar);
 Vector operator / (const Vector &vec, const double &scalar);
 Vector operator / (const double &scalar, const Vector &vec);
-
 Vector operator - (const Vector &vec1, const Vector &vec2);
+Vector operator + (const Vector &vec1, const Vector &vec2);
 
 
 #endif //ELEMENTS_VECTOR_H

@@ -64,9 +64,7 @@ Body Node::findMassCenter(const Node &node){
 }
 
 void Node::traverse(void (*foo)(const Node &node)) const{
-    using namespace  std;
-
-    stack<Node> Stack;
+    std::stack<Node> Stack;
     Node *curr;
 
     Stack.push(*this);

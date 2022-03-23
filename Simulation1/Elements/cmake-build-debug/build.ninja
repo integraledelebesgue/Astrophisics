@@ -102,6 +102,12 @@ build CMakeFiles/Elements.dir/Physics.cpp.o: CXX_COMPILER__Elements_Debug /home/
   OBJECT_DIR = CMakeFiles/Elements.dir
   OBJECT_FILE_DIR = CMakeFiles/Elements.dir
 
+build CMakeFiles/Elements.dir/Quadtree.cpp.o: CXX_COMPILER__Elements_Debug /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/Quadtree.cpp || cmake_object_order_depends_target_Elements
+  DEP_FILE = CMakeFiles/Elements.dir/Quadtree.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles/Elements.dir
+  OBJECT_FILE_DIR = CMakeFiles/Elements.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Elements
@@ -110,7 +116,7 @@ build CMakeFiles/Elements.dir/Physics.cpp.o: CXX_COMPILER__Elements_Debug /home/
 #############################################
 # Link the executable Elements
 
-build Elements: CXX_EXECUTABLE_LINKER__Elements_Debug CMakeFiles/Elements.dir/main.cpp.o CMakeFiles/Elements.dir/Node.cpp.o CMakeFiles/Elements.dir/Vector.cpp.o CMakeFiles/Elements.dir/Body.cpp.o CMakeFiles/Elements.dir/Physics.cpp.o
+build Elements: CXX_EXECUTABLE_LINKER__Elements_Debug CMakeFiles/Elements.dir/main.cpp.o CMakeFiles/Elements.dir/Node.cpp.o CMakeFiles/Elements.dir/Vector.cpp.o CMakeFiles/Elements.dir/Body.cpp.o CMakeFiles/Elements.dir/Physics.cpp.o CMakeFiles/Elements.dir/Quadtree.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Elements.dir
   POST_BUILD = :
