@@ -8,7 +8,7 @@
 class Node {
 public:
     int count;
-    double radius;
+    long double radius;
     Vector center;
     std::list<Body> bodies;
 
@@ -21,8 +21,8 @@ public:
 
     Node();
     Node(const Node &other);
-    Node(const int &Count, const double &Radius, const Vector &Center, const std::list<Body> &Bodies, const Body &Pseudobody);
-    Node(const double &Radius, const Vector &Center, const std::list<Body> &Bodies);
+    Node(const int &Count, const long double &Radius, const Vector &Center, const std::list<Body> &Bodies, const Body &Pseudobody);
+    Node(const long double &Radius, const Vector &Center, const std::list<Body> &Bodies);
 
     static Body findMassCenter(const Node &node);
     void traverse(void (*foo)(const Node &node)) const;

@@ -27,15 +27,20 @@ Node::Node(const Node &other){
     SE = other.SE;
 }
 
-Node::Node(const int &Count, const double &Radius, const Vector &Center, const std::list<Body> &Bodies, const Body &Pseudobody){
+Node::Node(const int &Count, const long double &Radius, const Vector &Center, const std::list<Body> &Bodies, const Body &Pseudobody){
     count = Count;
     radius = Radius;
     center = Center;
     bodies = Bodies;
     pseudobody = Pseudobody;
+
+    NW = nullptr;
+    NE = nullptr;
+    SW = nullptr;
+    SE = nullptr;
 }
 
-Node::Node(const double &Radius, const Vector &Center, const std::list<Body> &Bodies){
+Node::Node(const long double &Radius, const Vector &Center, const std::list<Body> &Bodies){
     count = Bodies.size();
     center = Center;
     radius = Radius;
@@ -84,7 +89,7 @@ void printNode(const Node &node){
     printf("Node {\n");
 
     if(!node.NW && !node.NE && !node.SW && !node.SE) printf("* Leaf node *\n");
-    printf("Count: %d, Center: (%lf, %lf), Radius: %lf\n", node.count, node.center.x, node.center.y, node.radius);
+    printf("Count: %d, Center: (%lf, %lf), Radius: %Lf\n", node.count, node.center.x, node.center.y, node.radius);
     printf("Pseudobody: mass: %lf, position: (%lf, %lf)\n", node.pseudobody.mass, node.pseudobody.position.x, node.pseudobody.position.y);
     printf("Bodies: \n");
 
