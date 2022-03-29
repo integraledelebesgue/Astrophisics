@@ -93,7 +93,7 @@ int main(){
     cout << duration.count() << " microseconds" << endl;*/
 
     double **result = perform(state, count, radius, accuracy);
-    printArr(result, count);
+    //printArr(result, count);
 
     return 0;
 }

@@ -14,7 +14,7 @@ using namespace std;
 extern double threshold;
 
 double **perform(double **state, int count, double radius, double accuracy){
-    Vector result[count];
+    Vector *result;
     list<Body> bodies;
     threshold = accuracy;
 
@@ -23,6 +23,8 @@ double **perform(double **state, int count, double radius, double accuracy){
     //printArr(state, count);
 
     auto start = chrono::high_resolution_clock::now();
+
+    result = new Vector[count];
 
     double **result_arr = new double *[count];
 
@@ -62,6 +64,8 @@ double **perform(double **state, int count, double radius, double accuracy){
     log << duration.count() << " µs" << endl;
 
     log.close();
+
+    delete[](result);
 
     return result_arr;
 }
