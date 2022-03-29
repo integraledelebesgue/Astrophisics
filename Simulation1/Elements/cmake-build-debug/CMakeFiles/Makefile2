@@ -54,16 +54,16 @@ RM = /snap/clion/184/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut
+CMAKE_SOURCE_DIR = /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/cmake-build-debug
+CMAKE_BINARY_DIR = /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/barnes_hut.dir/all
+all: CMakeFiles/Elements.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/barnes_hut.dir/clean
+clean: CMakeFiles/Elements.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/barnes_hut.dir
+# Target rules for target CMakeFiles/Elements.dir
 
 # All Build rule for target.
-CMakeFiles/barnes_hut.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/barnes_hut.dir/build.make CMakeFiles/barnes_hut.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/barnes_hut.dir/build.make CMakeFiles/barnes_hut.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target barnes_hut"
-.PHONY : CMakeFiles/barnes_hut.dir/all
+CMakeFiles/Elements.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Elements.dir/build.make CMakeFiles/Elements.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Elements.dir/build.make CMakeFiles/Elements.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target Elements"
+.PHONY : CMakeFiles/Elements.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/barnes_hut.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/cmake-build-debug/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/barnes_hut.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/barnes-hut/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/barnes_hut.dir/rule
+CMakeFiles/Elements.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/cmake-build-debug/CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Elements.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/Elements.dir/rule
 
 # Convenience name for target.
-barnes_hut: CMakeFiles/barnes_hut.dir/rule
-.PHONY : barnes_hut
+Elements: CMakeFiles/Elements.dir/rule
+.PHONY : Elements
 
 # clean rule for target.
-CMakeFiles/barnes_hut.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/barnes_hut.dir/build.make CMakeFiles/barnes_hut.dir/clean
-.PHONY : CMakeFiles/barnes_hut.dir/clean
+CMakeFiles/Elements.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Elements.dir/build.make CMakeFiles/Elements.dir/clean
+.PHONY : CMakeFiles/Elements.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
