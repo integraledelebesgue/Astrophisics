@@ -4,6 +4,7 @@
 #include "Physics.h"
 #include<cmath>
 #include<stack>
+#include <cstdio>
 
 double threshold;
 
@@ -19,7 +20,7 @@ Vector direction(const Vector &a, const Vector &b){
     return (b-a)/pow(distance(a, b), 3);
 }
 
-void computeForces(const Node &root, Vector result[]){
+void computeForces(const Node &root, Vector *result){
     int i = 0;
     for(const auto &body : root.bodies)
         result[i++] = computeResultantForce(root, body);
@@ -28,29 +29,37 @@ void computeForces(const Node &root, Vector result[]){
 Vector computeResultantForce(const Node &root, const Body &body){
     Vector result;
     double dist;
-    Node curr;
-    std::stack<Node> Stack;
+    Node *curr;
+    std::stack<Node *> Stack;
 
-    if(root.NW) Stack.push(*root.NW);
-    if(root.NE) Stack.push(*root.NE);
-    if(root.SW) Stack.push(*root.SW);
-    if(root.SE) Stack.push(*root.SE);
+    //printf("In resultant.. ");
+
+    if(root.NW) Stack.push(root.NW);
+    if(root.NE) Stack.push(root.NE);
+    if(root.SW) Stack.push(root.SW);
+    if(root.SE) Stack.push(root.SE);
 
     while(!Stack.empty()){
+        //printf("In loop!\n");
         curr = Stack.top();
         Stack.pop();
 
-        if((bool)(dist = distance(body.position, curr.pseudobody.position))){
-            if(curr.radius/dist < threshold)
-                result += computeForce(body, curr.pseudobody);
+        if((bool)(dist = distance(body.position, curr->pseudobody.position))){
+            if(curr->radius/dist < threshold){
+                //printf(" ..pseudobody.. ");
+                result += computeForce(body, curr->pseudobody);
+            }
+
             else{
-                if(curr.NW) Stack.push(*curr.NW);
-                if(curr.NE) Stack.push(*curr.NE);
-                if(curr.SW) Stack.push(*curr.SW);
-                if(curr.SE) Stack.push(*curr.SE);
+                //printf("    Lower level! ");
+                if(curr->NW) Stack.push(curr->NW);
+                if(curr->NE) Stack.push(curr->NE);
+                if(curr->SW) Stack.push(curr->SW);
+                if(curr->SE) Stack.push(curr->SE);
             }
         }
     }
 
+    //printf("\nResult: [%lf, %lf]\n", result.x, result.y);
     return result;
 }

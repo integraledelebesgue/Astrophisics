@@ -27,13 +27,13 @@ Node::Node(const Node &other){
     SE = other.SE;
 }
 
-Node::Node(const int &Count, const double &Radius, const Vector &Center, const std::list<Body> &Bodies, const Body &Pseudobody){
+/*Node::Node(const int &Count, const double &Radius, const Vector &Center, const std::list<Body> &Bodies, const Body &Pseudobody){
     count = Count;
     radius = Radius;
     center = Center;
     bodies = Bodies;
     pseudobody = Pseudobody;
-}
+}*/
 
 Node::Node(const double &Radius, const Vector &Center, const std::list<Body> &Bodies){
     count = Bodies.size();
@@ -64,7 +64,7 @@ Body Node::findMassCenter(const Node &node){
 }
 
 void Node::traverse(void (*foo)(const Node &node)) const{
-    std::stack<Node> Stack;
+    /*std::stack<Node> Stack;
     Node *curr;
 
     Stack.push(*this);
@@ -73,10 +73,53 @@ void Node::traverse(void (*foo)(const Node &node)) const{
         curr = &Stack.top();
         foo(*curr);
         Stack.pop();
-        if(curr->NW) Stack.push(*curr->NW);
+        if(curr->NW){
+            printf("NW!");
+            Stack.push(*curr->NW);
+        }
+        if(curr->NE){
+            printf("NE!");
+            Stack.push(*curr->NE);
+        }
+        if(curr->SW){
+            printf("SW!");
+            Stack.push(*curr->SW);
+        }
+        if(curr->SE){
+            printf("SE!");
+            Stack.push(*curr->SE);
+        }
         if(curr->NE) Stack.push(*curr->NE);
         if(curr->SW) Stack.push(*curr->SW);
         if(curr->SE) Stack.push(*curr->SE);
+    }*/
+
+    std::stack<Node *> Stack;
+    Node *curr;
+
+    Stack.push((Node *)this);
+
+    while(!Stack.empty()){
+        curr = Stack.top();
+        foo(*curr);
+        Stack.pop();
+
+        if(curr->NW){
+            //printf("NW!");
+            Stack.push(curr->NW);
+        }
+        if(curr->NE){
+            //printf("NE!");
+            Stack.push(curr->NE);
+        }
+        if(curr->SW){
+            //printf("SW!");
+            Stack.push(curr->SW);
+        }
+        if(curr->SE){
+            //printf("SE!");
+            Stack.push(curr->SE);
+        }
     }
 }
 

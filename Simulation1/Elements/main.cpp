@@ -3,8 +3,12 @@
 #include "Vector.h"
 #include "Node.h"
 #include "Quadtree.h"
+#include "Physics.h"
 #include<list>
 #include<cmath>
+#include<chrono>
+
+extern double threshold;
 
 using namespace std;
 
@@ -18,10 +22,15 @@ void printArr(double **arr, int count){
 
 
 int main(){
-    int i, count = 5;
+    int i, count = 50;
     double *state[count];
+    Vector result[count];
+
+    threshold = 0.3;
 
     srandom(time(nullptr));
+
+    auto start = chrono::high_resolution_clock::now();
 
     for(i=0; i<count; i++){
         state[i] = new double[3];
@@ -66,9 +75,25 @@ int main(){
 
     constructTree(root);
 
-    cout << "Tree constructed!" << endl;
+    cout << endl << "Tree constructed!" << endl;
 
-    root.traverse(printNode);
+    //root.traverse(printNode);
 
+    cout << endl << "Computing forces.." << endl;
+
+    computeForces(root, result);
+
+    cout << endl << "Resultant forces: " << endl;
+
+    for(i=0; i<count; i++)
+        printf("[%lf, %lf]\n", result[i].x, result[i].y);
+
+    cout << endl;
+
+    auto stop = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+
+    cout << "Procedure took ";
+    cout << duration.count() << " microseconds" << endl;
     return 0;
 }

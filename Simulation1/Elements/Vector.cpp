@@ -43,7 +43,7 @@ Vector operator / (const double &scalar, const Vector &vec){
 }
 
 Vector operator - (const Vector &vec1, const Vector &vec2){
-    return {vec2.x - vec1.x, vec2.y - vec1.y};
+    return {vec1.x - vec2.x, vec1.y - vec2.y};
 }
 
 Vector operator + (const Vector &vec1, const Vector &vec2){

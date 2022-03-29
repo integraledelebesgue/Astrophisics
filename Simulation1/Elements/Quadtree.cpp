@@ -16,7 +16,7 @@ void constructTree(Node &root){
     Stack.push(&root);
 
     while(!Stack.empty()){
-        cout << "In loop..";
+        //cout << "In loop..";
         curr = Stack.top();
 
         qualifyBodies(curr, NW, NE, SW, SE);
@@ -26,16 +26,18 @@ void constructTree(Node &root){
             curr->NW = new Node(curr->radius/2, curr->center - Vector(curr->radius/2, (-1)*curr->radius/2), NW);
             if(NW.size() > 1) Stack.push(curr->NW);
             NW.clear();
-            cout << "-- New node: --" << endl;
-            printNode(*curr->NW);
+            //cout << "NW Link: " << endl;
+            //cout << "-- New node: --" << endl;
+            //printNode(*curr->NW);
         }
 
         if(!NE.empty()){
             curr->NE = new Node(curr->radius/2, curr->center + Vector(curr->radius/2, curr->radius/2), NE);
             if(NE.size() > 1) Stack.push(curr->NE);
             NE.clear();
-            cout << "-- New node: --" << endl;
-            printNode(*curr->NE);
+            //cout << "NE Link: " << endl;
+            //cout << "-- New node: --" << endl;
+            //printNode(*curr->NE);
 
         }
 
@@ -43,26 +45,41 @@ void constructTree(Node &root){
             curr->SW = new Node(curr->radius/2, curr->center - Vector(curr->radius/2, curr->radius/2), SW);
             if(SW.size() > 1) Stack.push(curr->SW);
             SW.clear();
-            cout << "-- New node: --" << endl;
-            printNode(*curr->SW);
+            //cout << "SW Link: " << endl;
+            //cout << "-- New node: --" << endl;
+            //printNode(*curr->SW);
         }
 
         if(!SE.empty()){
             curr->SE = new Node(curr->radius/2, curr->center - Vector((-1)*curr->radius/2, curr->radius/2), SE);
             if(SE.size() > 1) Stack.push(curr->SE);
             SE.clear();
-            cout << "-- New node: --" << endl;
-            printNode(*curr->SE);
+            //cout << "SE Link: " << endl;
+            //cout << "-- New node: --" << endl;
+            //printNode(*curr->SE);
         }
+
+        //printf("Links: %p, %p, %p, %p\n", curr->NW, curr->NE, curr->SW, curr->SE);
+        /*printf("       Linked nodes: ");
+        if(curr->NW) printNode(*curr->NW);
+        if(curr->NE) printNode(*curr->NE);
+        if(curr->SW) printNode(*curr->SW);
+        if(curr->SE) printNode(*curr->SE);*/
+        //printf("\n");
     }
+    /*printf("Root links: ");
+    if(root.NW) printNode(*root.NW);
+    if(root.NE) printNode(*root.NE);
+    if(root.SW) printNode(*root.SW);
+    if(root.SE) printNode(*root.SE);*/
 }
 
 void qualifyBodies(Node *curr, list<Body> &NW, list<Body> &NE, list<Body> &SW, list<Body> &SE){
     Vector position;
 
-    cout << "Qualifying node: " << endl;
-    printNode(*curr);
-    cout << endl;
+    //cout << "Qualifying node: " << endl;
+    //printNode(*curr);
+    //cout << endl;
 
     for(const auto &body : curr->bodies){
         position = body.position - curr->center;
