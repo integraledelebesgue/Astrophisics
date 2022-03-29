@@ -4,29 +4,23 @@
 #include "Node.h"
 #include "Quadtree.h"
 #include "Physics.h"
+#include "barnes-hut.h"
 #include<list>
 #include<cmath>
 #include<chrono>
 
-extern double threshold;
+//extern double threshold;
 
 using namespace std;
 
-void printArr(double **arr, int count){
-    printf("{\n");
-    for(int i=0; i<count; i++){
-        printf("[%lf, %lf, %lf]\n", arr[i][0], arr[i][1], arr[i][2]);
-    }
-    printf("}\n");
-}
-
-
 int main(){
-    int i, count = 50;
+    int i, count = 1000000;
+    double radius = 100000000;
     double *state[count];
-    Vector result[count];
+    double accuracy = 0.5;
+    //Vector result[count];
 
-    threshold = 0.3;
+    //threshold = 0.3;
 
     srandom(time(nullptr));
 
@@ -34,16 +28,18 @@ int main(){
 
     for(i=0; i<count; i++){
         state[i] = new double[3];
-        state[i][0] = 10.0 + (double)(random()%50);
-        state[i][1] = pow(-1, random()+1)*(double)(random()%100);
-        state[i][2] = pow(-1, random())*(double)(random()%100);
+        state[i][0] = 10.0 + (double)(random()%100);
+        state[i][1] = pow(-1, random()+1)*(double)(random()%(int)radius);
+        state[i][2] = pow(-1, random())*(double)(random()%(int)radius);
     }
 
-    cout << "Initialize:" << endl;
+    cout << "Initializing.. ";
 
-    printArr(state, count);
+    //printArr(state, count);
 
-    list<Body> bodies;
+    cout << "Done! " << endl;
+
+    /*list<Body> bodies;
 
     cout << "Conversion:" << endl;
 
@@ -94,6 +90,10 @@ int main(){
     auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
 
     cout << "Procedure took ";
-    cout << duration.count() << " microseconds" << endl;
+    cout << duration.count() << " microseconds" << endl;*/
+
+    double **result = perform(state, count, radius, accuracy);
+    printArr(result, count);
+
     return 0;
 }
