@@ -64,36 +64,6 @@ Body Node::findMassCenter(const Node &node){
 }
 
 void Node::traverse(void (*foo)(const Node &node)) const{
-    /*std::stack<Node> Stack;
-    Node *curr;
-
-    Stack.push(*this);
-
-    while(!Stack.empty()){
-        curr = &Stack.top();
-        foo(*curr);
-        Stack.pop();
-        if(curr->NW){
-            printf("NW!");
-            Stack.push(*curr->NW);
-        }
-        if(curr->NE){
-            printf("NE!");
-            Stack.push(*curr->NE);
-        }
-        if(curr->SW){
-            printf("SW!");
-            Stack.push(*curr->SW);
-        }
-        if(curr->SE){
-            printf("SE!");
-            Stack.push(*curr->SE);
-        }
-        if(curr->NE) Stack.push(*curr->NE);
-        if(curr->SW) Stack.push(*curr->SW);
-        if(curr->SE) Stack.push(*curr->SE);
-    }*/
-
     std::stack<Node *> Stack;
     Node *curr;
 
@@ -136,3 +106,4 @@ void printNode(const Node &node){
 
     printf("}\n");
 }
+

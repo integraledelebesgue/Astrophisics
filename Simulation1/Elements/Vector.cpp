@@ -49,3 +49,10 @@ Vector operator - (const Vector &vec1, const Vector &vec2){
 Vector operator + (const Vector &vec1, const Vector &vec2){
     return {vec2.x + vec1.x, vec2.y + vec1.y};
 }
+
+void vectorToArr(double **arr, Vector *vectors, int count){
+    for(int i=0; i<count; i++){
+        arr[i][0] = vectors[i].x;
+        arr[i][1] = vectors[i].y;
+    }
+}

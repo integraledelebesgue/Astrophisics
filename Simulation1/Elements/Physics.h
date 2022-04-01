@@ -1,6 +1,10 @@
 #ifndef ELEMENTS_PHYSICS_H
 #define ELEMENTS_PHYSICS_H
 
+#include "Vector.h"
+#include "Body.h"
+#include "Node.h"
+
 double distance(const Vector &v1, const Vector &v2);
 Vector direction(const Vector &a, const Vector &b);
 Vector computeForce(const Body &particle, const Body &source);

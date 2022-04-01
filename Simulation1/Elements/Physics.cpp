@@ -2,11 +2,12 @@
 #include "Body.h"
 #include "Node.h"
 #include "Physics.h"
+#include "memory.h"
 #include<cmath>
 #include<stack>
 #include <cstdio>
 
-double threshold;
+//double threshold;
 
 Vector computeForce(const Body &particle, const Body &source){
     return direction(particle.position, source.position) * particle.mass * source.mass;

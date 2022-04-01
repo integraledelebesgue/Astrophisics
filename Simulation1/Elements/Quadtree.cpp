@@ -2,6 +2,7 @@
 #include "Body.h"
 #include "Node.h"
 #include "Quadtree.h"
+#include "memory.h"
 #include<stack>
 #include <iostream>
 
@@ -26,6 +27,7 @@ void constructTree(Node &root){
             curr->NW = new Node(curr->radius/2, curr->center - Vector(curr->radius/2, (-1)*curr->radius/2), NW);
             if(NW.size() > 1) Stack.push(curr->NW);
             NW.clear();
+            memStack->push((void *)curr->NW);
             //cout << "NW Link: " << endl;
             //cout << "-- New node: --" << endl;
             //printNode(*curr->NW);
@@ -35,6 +37,7 @@ void constructTree(Node &root){
             curr->NE = new Node(curr->radius/2, curr->center + Vector(curr->radius/2, curr->radius/2), NE);
             if(NE.size() > 1) Stack.push(curr->NE);
             NE.clear();
+            memStack->push((void *)curr->NE);
             //cout << "NE Link: " << endl;
             //cout << "-- New node: --" << endl;
             //printNode(*curr->NE);
@@ -45,6 +48,7 @@ void constructTree(Node &root){
             curr->SW = new Node(curr->radius/2, curr->center - Vector(curr->radius/2, curr->radius/2), SW);
             if(SW.size() > 1) Stack.push(curr->SW);
             SW.clear();
+            memStack->push((void *)curr->SW);
             //cout << "SW Link: " << endl;
             //cout << "-- New node: --" << endl;
             //printNode(*curr->SW);
@@ -54,6 +58,7 @@ void constructTree(Node &root){
             curr->SE = new Node(curr->radius/2, curr->center - Vector((-1)*curr->radius/2, curr->radius/2), SE);
             if(SE.size() > 1) Stack.push(curr->SE);
             SE.clear();
+            memStack->push((void *)curr->SE);
             //cout << "SE Link: " << endl;
             //cout << "-- New node: --" << endl;
             //printNode(*curr->SE);

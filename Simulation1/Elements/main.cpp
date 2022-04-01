@@ -92,8 +92,10 @@ int main(){
     cout << "Procedure took ";
     cout << duration.count() << " microseconds" << endl;*/
 
-    double **result = perform(state, count, radius, accuracy);
+    double **result = getForces(state, count, radius, accuracy);
     //printArr(result, count);
+
+
 
     return 0;
 }
