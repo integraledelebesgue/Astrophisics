@@ -18,3 +18,13 @@ Computing 100000 bodies with accuracy 0.3 took 4920790 µs
 Computing 100000 bodies with accuracy 0.3 took 4925051 µs
 Computing 1000000 bodies with accuracy 0.5 took 30341399 µs
 Computing 1000000 bodies with accuracy 0.5 took 29377785 µs
+Computing 1000000 bodies with accuracy 0.5 took 29297096 µs
+Computing 1000000 bodies with accuracy 0.5 took 27060153 µs
+Computing 1000000 bodies with accuracy 0.6 took 20663577 µs
+Computing 1000 bodies with accuracy 0.1 took 79120 µs
+Computing 1000 bodies with accuracy 0 took 198744 µs
+Computing 10000 bodies with accuracy 0 took 16992672 µs
+Computing 10000 bodies with accuracy 0.7 took 98680 µs
+Computing 10000 bodies with accuracy 0.2 took 532559 µs
+Computing 10000 bodies with accuracy 0.15 took 816297 µs
+Computing 10000 bodies with accuracy 0.1 took 1532352 µs

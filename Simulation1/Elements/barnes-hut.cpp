@@ -13,6 +13,11 @@ using namespace std;
 
 extern double threshold;
 
+
+/*extern "C" {
+
+}*/
+
 double **perform(double **state, int count, double radius, double accuracy){
     Vector *result;
     list<Body> bodies;

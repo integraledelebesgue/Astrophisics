@@ -14,10 +14,10 @@
 using namespace std;
 
 int main(){
-    int i, count = 1000000;
-    double radius = 100000000;
+    int i, count = 10000;
+    double radius = 100000;
     double *state[count];
-    double accuracy = 0.5;
+    double accuracy = 0.1;
     //Vector result[count];
 
     //threshold = 0.3;
