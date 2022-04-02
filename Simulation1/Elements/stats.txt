@@ -1,1 +1,2 @@
 Statystyki uruchomień programu:
+Computing 2 bodies with accuracy 0.5 took 32 µs

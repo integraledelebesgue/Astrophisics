@@ -15,6 +15,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Elements.dir/main.cpp.o.d"
   "CMakeFiles/Elements.dir/memory.cpp.o"
   "CMakeFiles/Elements.dir/memory.cpp.o.d"
+  "CMakeFiles/Elements.dir/python_interface.cpp.o"
+  "CMakeFiles/Elements.dir/python_interface.cpp.o.d"
   "Elements"
   "Elements.pdb"
 )

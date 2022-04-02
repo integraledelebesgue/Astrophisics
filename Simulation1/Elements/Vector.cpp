@@ -1,4 +1,5 @@
 #include "Vector.h"
+#include<vector>
 
 Vector::Vector(){
     x = 0.0;
@@ -50,9 +51,11 @@ Vector operator + (const Vector &vec1, const Vector &vec2){
     return {vec2.x + vec1.x, vec2.y + vec1.y};
 }
 
-void vectorToArr(double **arr, Vector *vectors, int count){
+void vectorToArr(std::vector<std::vector<double>> &arr, Vector *vectors, int count){
     for(int i=0; i<count; i++){
-        arr[i][0] = vectors[i].x;
-        arr[i][1] = vectors[i].y;
+        //arr[i][0] = vectors[i].x;
+        //arr[i][1] = vectors[i].y;
+        arr[i].push_back(vectors[i].x);
+        arr[i].push_back(vectors[i].y);
     }
 }

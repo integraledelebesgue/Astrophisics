@@ -2,8 +2,7 @@ CMakeFiles/Elements.dir/Quadtree.cpp.o: \
  /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/Quadtree.cpp \
  /usr/include/stdc-predef.h \
  /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/Vector.h \
- /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/Body.h \
- /usr/include/c++/9/list /usr/include/c++/9/bits/stl_algobase.h \
+ /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -35,17 +34,22 @@ CMakeFiles/Elements.dir/Quadtree.cpp.o: \
  /usr/include/c++/9/typeinfo /usr/include/c++/9/bits/hash_bytes.h \
  /usr/include/c++/9/bits/nested_exception.h \
  /usr/include/c++/9/bits/memoryfwd.h \
- /usr/include/c++/9/bits/range_access.h \
- /usr/include/c++/9/initializer_list /usr/include/c++/9/bits/stl_list.h \
+ /usr/include/c++/9/bits/stl_construct.h \
  /usr/include/c++/9/ext/alloc_traits.h \
  /usr/include/c++/9/bits/alloc_traits.h \
+ /usr/include/c++/9/bits/stl_uninitialized.h \
+ /usr/include/c++/9/bits/stl_vector.h /usr/include/c++/9/initializer_list \
+ /usr/include/c++/9/bits/stl_bvector.h \
+ /usr/include/c++/9/bits/functional_hash.h \
+ /usr/include/c++/9/bits/range_access.h \
+ /usr/include/c++/9/bits/vector.tcc \
+ /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/Body.h \
+ /usr/include/c++/9/list /usr/include/c++/9/bits/stl_list.h \
  /usr/include/c++/9/bits/allocated_ptr.h \
  /usr/include/c++/9/ext/aligned_buffer.h /usr/include/c++/9/bits/list.tcc \
  /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/Node.h \
  /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/Quadtree.h \
  /usr/include/c++/9/stack /usr/include/c++/9/deque \
- /usr/include/c++/9/bits/stl_construct.h \
- /usr/include/c++/9/bits/stl_uninitialized.h \
  /usr/include/c++/9/bits/stl_deque.h /usr/include/c++/9/bits/deque.tcc \
  /usr/include/c++/9/bits/stl_stack.h \
  /usr/include/c++/9/bits/uses_allocator.h \
@@ -133,7 +137,6 @@ CMakeFiles/Elements.dir/Quadtree.cpp.o: \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
- /usr/include/c++/9/bits/functional_hash.h \
  /usr/include/c++/9/bits/basic_string.tcc \
  /usr/include/c++/9/bits/locale_classes.tcc \
  /usr/include/c++/9/system_error \

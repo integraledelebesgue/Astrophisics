@@ -138,14 +138,16 @@ CMakeFiles/Elements.dir/main.cpp.o: \
  /usr/include/c++/9/bits/istream.tcc \
  /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/Body.h \
  /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/Vector.h \
+ /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_construct.h \
+ /usr/include/c++/9/bits/stl_uninitialized.h \
+ /usr/include/c++/9/bits/stl_vector.h \
+ /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
  /usr/include/c++/9/list /usr/include/c++/9/bits/stl_list.h \
  /usr/include/c++/9/bits/allocated_ptr.h \
  /usr/include/c++/9/ext/aligned_buffer.h /usr/include/c++/9/bits/list.tcc \
  /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/Node.h \
  /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/Quadtree.h \
  /usr/include/c++/9/stack /usr/include/c++/9/deque \
- /usr/include/c++/9/bits/stl_construct.h \
- /usr/include/c++/9/bits/stl_uninitialized.h \
  /usr/include/c++/9/bits/stl_deque.h /usr/include/c++/9/bits/deque.tcc \
  /usr/include/c++/9/bits/stl_stack.h \
  /usr/include/c++/9/bits/uses_allocator.h \
@@ -164,4 +166,5 @@ CMakeFiles/Elements.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
  /usr/include/c++/9/chrono /usr/include/c++/9/ratio \
  /usr/include/c++/9/limits /usr/include/c++/9/ctime \
- /usr/include/c++/9/bits/parse_numbers.h
+ /usr/include/c++/9/bits/parse_numbers.h /usr/include/c++/9/array \
+ /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h

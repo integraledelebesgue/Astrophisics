@@ -16,6 +16,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/barnes-hut.cpp" "CMakeFiles/Elements.dir/barnes-hut.cpp.o" "gcc" "CMakeFiles/Elements.dir/barnes-hut.cpp.o.d"
   "/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/main.cpp" "CMakeFiles/Elements.dir/main.cpp.o" "gcc" "CMakeFiles/Elements.dir/main.cpp.o.d"
   "/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/memory.cpp" "CMakeFiles/Elements.dir/memory.cpp.o" "gcc" "CMakeFiles/Elements.dir/memory.cpp.o.d"
+  "/home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/python_interface.cpp" "CMakeFiles/Elements.dir/python_interface.cpp.o" "gcc" "CMakeFiles/Elements.dir/python_interface.cpp.o.d"
   )
 
 # Targets to which this target links.

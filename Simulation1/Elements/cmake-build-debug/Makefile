@@ -321,6 +321,30 @@ memory.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Elements.dir/build.make CMakeFiles/Elements.dir/memory.cpp.s
 .PHONY : memory.cpp.s
 
+python_interface.o: python_interface.cpp.o
+.PHONY : python_interface.o
+
+# target to build an object file
+python_interface.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Elements.dir/build.make CMakeFiles/Elements.dir/python_interface.cpp.o
+.PHONY : python_interface.cpp.o
+
+python_interface.i: python_interface.cpp.i
+.PHONY : python_interface.i
+
+# target to preprocess a source file
+python_interface.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Elements.dir/build.make CMakeFiles/Elements.dir/python_interface.cpp.i
+.PHONY : python_interface.cpp.i
+
+python_interface.s: python_interface.cpp.s
+.PHONY : python_interface.s
+
+# target to generate assembly for a file
+python_interface.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Elements.dir/build.make CMakeFiles/Elements.dir/python_interface.cpp.s
+.PHONY : python_interface.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -354,6 +378,9 @@ help:
 	@echo "... memory.o"
 	@echo "... memory.i"
 	@echo "... memory.s"
+	@echo "... python_interface.o"
+	@echo "... python_interface.i"
+	@echo "... python_interface.s"
 .PHONY : help
 
 

@@ -1,0 +1,5 @@
+Computing 100 bodies with accuracy 0.5 took 281 µs
+Computing 100 bodies with accuracy 0.5 took 328 µs
+Computing 100 bodies with accuracy 0.5 took 398 µs
+Computing 100 bodies with accuracy 0.5 took 279 µs
+Computing 100 bodies with accuracy 0.3 took 379 µs

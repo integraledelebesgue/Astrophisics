@@ -44,6 +44,10 @@ CMakeFiles/Elements.dir/memory.cpp.o: \
  /usr/include/c++/9/bits/stl_stack.h \
  /usr/include/c++/9/bits/uses_allocator.h \
  /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/barnes-hut.h \
+ /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_vector.h \
+ /usr/include/c++/9/bits/stl_bvector.h \
+ /usr/include/c++/9/bits/functional_hash.h \
+ /usr/include/c++/9/bits/vector.tcc \
  /home/jsmolka/Programowanie/Projekty/Astrophisics/Simulation1/Elements/Vector.h \
  /usr/include/c++/9/cstdlib /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \

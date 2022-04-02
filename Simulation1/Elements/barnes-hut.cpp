@@ -7,6 +7,7 @@
 #include "barnes-hut.h"
 #include "memory.h"
 #include<list>
+#include<vector>
 #include<fstream>
 #include<chrono>
 
@@ -14,7 +15,7 @@ using namespace std;
 //double threshold;
 //std::stack<void *> *memStack;
 
-extern double **getForces(double **state, int count, double radius, double accuracy){
+vector<vector<double>> getForces(const vector<vector<double>> &state, int count, double radius, double accuracy){
     Vector *result;
     list<Body> bodies;
     threshold = accuracy;
@@ -28,11 +29,13 @@ extern double **getForces(double **state, int count, double radius, double accur
     result = new Vector[count];
     memStack = new std::stack<void *>;
 
-    double **result_arr = new double *[count];
+    /*double **result_arr = new double *[count];
 
     for(int i=0; i<count; i++){
         result_arr[i] = new double[2];
-    }
+    }*/
+
+    vector<vector<double>> result_arr(count);
 
     cout << "Conversion.. " << endl;
 

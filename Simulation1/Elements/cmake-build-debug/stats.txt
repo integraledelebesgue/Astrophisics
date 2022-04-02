@@ -37,3 +37,9 @@ Computing 10000 bodies with accuracy 0.1 took 1456839 µs
 Computing 10000 bodies with accuracy 0.1 took 1470394 µs
 Computing 10000 bodies with accuracy 0.1 took 1537329 µs
 Computing 10000 bodies with accuracy 0.1 took 1495436 µs
+
+After introducing vectors:
+Computing 10000 bodies with accuracy 0.1 took 1444167 µs
+Computing 10000 bodies with accuracy 0.1 took 1456089 µs
+Computing 10000 bodies with accuracy 0.1 took 1559141 µs
+Computing 10000000 bodies with accuracy 0.5 took 348185920 µs

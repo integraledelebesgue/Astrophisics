@@ -1,5 +1,6 @@
 #include "Body.h"
 #include<list>
+#include<vector>
 
 Body::Body(){
     mass = 0.0;
@@ -11,12 +12,12 @@ Body::Body(const double &Mass, const Vector &Position){
     position = Position;
 }
 
-Body::Body(const double params[3]){
+Body::Body(const std::vector<double> &params){
     mass = params[0];
     position = Vector(params[1], params[2]);
 }
 
-void stateToBody(double **state, std::list<Body> &bodies, const int &count){
+void stateToBody(const std::vector<std::vector<double>> &state, std::list<Body> &bodies, const int &count){
     for(int i=0; i<count; i++)
-        bodies.emplace_back(state[i]);
+        bodies.emplace_back(Body(state[i]));
 }
