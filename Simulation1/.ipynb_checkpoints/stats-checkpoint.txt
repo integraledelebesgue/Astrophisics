@@ -32,4 +32,3 @@ Computing 100 bodies with accuracy 0.2 took 629 µs
 Computing 100 bodies with accuracy 0.2 took 457 µs
 Computing 100 bodies with accuracy 0.2 took 646 µs
 Computing 100 bodies with accuracy 0.2 took 466 µs
-Computing 100 bodies with accuracy 0.2 took 513 µs
