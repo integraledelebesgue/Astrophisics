@@ -72,6 +72,8 @@ vector<vector<double>> getForces(const vector<vector<double>> &state, int count,
 
     delete[](result);
 
+    root.traverse(printNode);
+
     cout << "Cleaning up memory.. ";
 
     freeMemory();

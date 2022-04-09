@@ -50,17 +50,17 @@ Node::Node(const double &Radius, const Vector &Center, const std::list<Body> &Bo
 
 Body Node::findMassCenter(const Node &node){
     double total_mass = 0;
-    Vector centre;
+    Vector centre(0, 0);
 
     for(const auto & body : node.bodies){
         total_mass += body.mass;
         centre += (body.position * body.mass);
     }
 
-    centre.x /= total_mass;
-    centre.y /= total_mass;
+    /*centre.x /= total_mass;
+    centre.y /= total_mass;*/
 
-    return Body(total_mass, centre);
+    return Body(total_mass, centre/total_mass);
 }
 
 void Node::traverse(void (*foo)(const Node &node)) const{

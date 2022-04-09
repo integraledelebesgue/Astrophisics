@@ -1,5 +1,5 @@
-#include</home/jsmolka/anaconda3/include/pybind11/pybind11.h>
-#include</home/jsmolka/anaconda3/include/pybind11/stl.h>
+#include</home/jsmolka/virtual_env/lib/python3.8/site-packages/pybind11/include/pybind11/pybind11.h>
+#include</home/jsmolka/virtual_env/lib/python3.8/site-packages/pybind11/include/pybind11/stl.h>
 #include<python3.8/Python.h>
 #include "barnes-hut.h"
 

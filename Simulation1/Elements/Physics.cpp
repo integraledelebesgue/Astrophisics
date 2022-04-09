@@ -28,7 +28,7 @@ void computeForces(const Node &root, Vector *result){
 }
 
 Vector computeResultantForce(const Node &root, const Body &body){
-    Vector result;
+    Vector result(0, 0);
     double dist;
     Node *curr;
     std::stack<Node *> Stack;
@@ -46,7 +46,11 @@ Vector computeResultantForce(const Node &root, const Body &body){
         Stack.pop();
 
         if((bool)(dist = distance(body.position, curr->pseudobody.position))){
-            if(curr->radius/dist < threshold){
+            if (!(curr->NW) && !(curr->NE) && !(curr->SW) && !(curr->SE)){
+                result += computeForce(body, curr->pseudobody);
+            }
+
+            else if((curr->radius/dist < threshold)){
                 //printf(" ..pseudobody.. ");
                 result += computeForce(body, curr->pseudobody);
             }
@@ -57,6 +61,9 @@ Vector computeResultantForce(const Node &root, const Body &body){
                 if(curr->NE) Stack.push(curr->NE);
                 if(curr->SW) Stack.push(curr->SW);
                 if(curr->SE) Stack.push(curr->SE);
+
+                /*if(!curr->NW && !curr->NE && !curr->SW && !curr->SE)
+                    result += computeForce(body, curr->pseudobody);*/
             }
         }
     }
