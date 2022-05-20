@@ -49,6 +49,9 @@ Node::Node(const double &Radius, const Vector &Center, const std::list<Body> &Bo
 }
 
 Body Node::findMassCenter(const Node &node){
+    if(node.bodies.size() == 1)
+        return node.bodies.front();
+
     double total_mass = 0;
     Vector centre(0, 0);
 
@@ -91,6 +94,10 @@ void Node::traverse(void (*foo)(const Node &node)) const{
             Stack.push(curr->SE);
         }
     }
+}
+
+bool Node::isLeaf(){
+    return !this->NW && !this->NE && !this->SW && !this->SE;
 }
 
 void printNode(const Node &node){

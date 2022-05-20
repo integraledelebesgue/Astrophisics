@@ -20,7 +20,7 @@ vector<vector<double>> getForces(const vector<vector<double>> &state, int count,
     list<Body> bodies;
     threshold = accuracy;
 
-    cout << "Computation starting.. " << endl;
+    //cout << "Computation starting.. " << endl;
 
     //printArr(state, count);
 
@@ -37,25 +37,25 @@ vector<vector<double>> getForces(const vector<vector<double>> &state, int count,
 
     vector<vector<double>> result_arr(count);
 
-    cout << "Conversion.. " << endl;
+    //cout << "Conversion.. " << endl;
 
     stateToBody(state, bodies, count);
 
     Node root(radius, Vector(), bodies);
 
-    cout << "Tree construction.." << endl;
+    //cout << "Tree construction.." << endl;
 
     constructTree(root);
 
-    cout << "Force computation.. " << endl;
+    //cout << "Force computation.. " << endl;
 
     computeForces(root, result);
 
-    cout << "Conversion.. " << endl;
+    //cout << "Conversion.. " << endl;
 
     vectorToArr(result_arr, result, count);
 
-    cout << "Done!" << endl;
+    //cout << "Done!" << endl;
 
     auto stop = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
@@ -72,14 +72,14 @@ vector<vector<double>> getForces(const vector<vector<double>> &state, int count,
 
     delete[](result);
 
-    root.traverse(printNode);
+    //root.traverse(printNode);
 
-    cout << "Cleaning up memory.. ";
+    //cout << "Cleaning up memory.. ";
 
     freeMemory();
 
-    cout << "Memory stack: ";
-    cout << memStack->size() << endl;
+    //cout << "Memory stack: ";
+    //cout << memStack->size() << endl;
 
     delete(memStack);
 

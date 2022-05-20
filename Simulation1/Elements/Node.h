@@ -25,6 +25,7 @@ public:
     Node(const double &Radius, const Vector &Center, const std::list<Body> &Bodies);
 
     static Body findMassCenter(const Node &node);
+    bool isLeaf();
     void traverse(void (*foo)(const Node &node)) const;
 };
 

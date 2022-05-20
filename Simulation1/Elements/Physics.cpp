@@ -33,37 +33,27 @@ Vector computeResultantForce(const Node &root, const Body &body){
     Node *curr;
     std::stack<Node *> Stack;
 
-    //printf("In resultant.. ");
-
     if(root.NW) Stack.push(root.NW);
     if(root.NE) Stack.push(root.NE);
     if(root.SW) Stack.push(root.SW);
     if(root.SE) Stack.push(root.SE);
 
     while(!Stack.empty()){
-        //printf("In loop!\n");
         curr = Stack.top();
         Stack.pop();
 
         if((bool)(dist = distance(body.position, curr->pseudobody.position))){
-            if (!(curr->NW) && !(curr->NE) && !(curr->SW) && !(curr->SE)){
+            if(curr->isLeaf()) 
                 result += computeForce(body, curr->pseudobody);
-            }
 
-            else if((curr->radius/dist < threshold)){
-                //printf(" ..pseudobody.. ");
+            else if(curr->radius/dist < threshold)
                 result += computeForce(body, curr->pseudobody);
-            }
 
             else{
-                //printf("    Lower level! ");
                 if(curr->NW) Stack.push(curr->NW);
                 if(curr->NE) Stack.push(curr->NE);
                 if(curr->SW) Stack.push(curr->SW);
                 if(curr->SE) Stack.push(curr->SE);
-
-                /*if(!curr->NW && !curr->NE && !curr->SW && !curr->SE)
-                    result += computeForce(body, curr->pseudobody);*/
             }
         }
     }
