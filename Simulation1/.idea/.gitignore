@@ -6,3 +6,10 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+
+./__pycache__
+./.idea/misc.xml
+./.idea/modules.xml
+./.idea/Simulation13.iml
+./vcs.xml
+./ipynb_checkpoints
