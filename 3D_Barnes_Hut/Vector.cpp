@@ -58,6 +58,14 @@ Vector operator *(const double &scalar, const Vector &vec){
     return Vector{vec.x * scalar, vec.y * scalar, vec.z * scalar};
 }
 
+Vector operator /(const Vector &vec, const double &scalar){
+    return Vector{vec.x / scalar, vec.y / scalar, vec.z / scalar};
+}
+
+bool operator ==(const Vector &v1, const Vector &v2){
+    return v1.x == v2.x && v1.y == v2.y && v1.z == v2.z;
+}
+
 Vector sum(const list<Vector> &vectors){
     Vector result;
     for(const Vector &vec : vectors) result += vec;
@@ -70,6 +78,13 @@ double norm(const Vector &vec){
         pow(vec.y, 2) + \
         pow(vec.z, 2)
     );
+}
+
+short int segmentHash(const Vector &vec){
+    return \
+    (int)( vec.x > 0 ) * 2 + \
+    (int)( vec.y > 0 ) * 3 + \ 
+    (int)( vec.z > 0 ) * 7;
 }
 
 

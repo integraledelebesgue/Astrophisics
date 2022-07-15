@@ -3,26 +3,28 @@
 
 #include<list>
 #include<array>
+#include<vector>
 #include "Body.h"
 
 using namespace std;
 
 
 class Node{
-private:
-    array<double, 3> center;
+public:
+    Vector center;
+    list<Body> bodies;
     double radius;
     Body mass_center;
-    list<Body> bodies;
     array<Node *, 8> children;
 
-public:
     Node();
-    Node(const array<double, 3> &, const double &, const list<Body> &);
-    void findMassCenter(Node &);
-    friend array<Node *, 8> divideNode(const Node &);
+    Node(const Vector &, const double &, const list<Body> &);
+    bool trivial();
+    bool isLeaf();
+    friend void divideNode(Node &, vector<Node *> processed);
 };
 
-array<Node *, 8> divideNode(const Node &);
+void divideNode(Node &, vector<Node *> processed);
+
 
 #endif

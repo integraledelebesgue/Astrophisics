@@ -1,4 +1,3 @@
-#include<array>
 #include "Body.h"
 #include<cmath>
 
@@ -7,71 +6,80 @@ using namespace std;
 
 Body::Body(){
     mass = 0.0;
-    position = array<double, 3> {0.0, 0.0, 0.0};
+    position = Vector();
 }
 
-Body::Body(double *const arr){
-    mass = arr[0];
-    position = array<double, 3> {arr[1], arr[2], arr[3]};
+Body::Body(const array<double, 4> &params){
+    mass = params[0];
+    position = Vector{params[1], params[2], params[3]};
 }
 
-Body::Body(const array<double, 4> &arr){
-    mass = arr[0];
-    position = array<double, 3> {arr[1], arr[2], arr[3]};
+Body::Body(const double &_mass, const Vector &_position){
+    mass = _mass;
+    position = _position;
 }
 
-array<double, 3> gravitationForce(const Body &particle, const Body &source){
-    double cubed_norm = pow( 
-        sqrt(
-            pow( (source.position[0]-particle.position[0]), 2.0 ) + \
-            pow( (source.position[1]-particle.position[1]), 2.0 ) + \
-            pow( (source.position[2]-particle.position[2]), 2.0 )
-        ), 
-        3.0
-    );
-
-    double masses = particle.mass * source.mass;
-    
-    return array<double, 3> {
-        (source.position[0]-particle.position[0]) / cubed_norm * masses, 
-        (source.position[1]-particle.position[1]) / cubed_norm * masses, 
-        (source.position[2]-particle.position[2]) / cubed_norm * masses
-        };
+Vector Body::getPosition(){
+    return position;
 }
 
-int qualifyBody(const Body &body, const array<double, 3> &center){
-    int hash = 
-        (int)( body.position[0] - center[0] > 0 ) * 2 + \
-        (int)( body.position[1] - center[1] > 0 ) * 3 + \ 
-        (int)( body.position[2] - center[2] > 0 ) * 7;
+Body massCenter(const list<Body> &body_list){
+    double total_mass = 0;
+    Vector total_position;
 
-    switch(hash){
+    for(const Body &body : body_list){
+        total_mass += body.mass;
+        total_position += body.position;
+    }
+
+    return Body(total_mass, total_position / total_mass);
+}
+
+short int qualify(const Body &body, const Vector &center){
+    // 0: + + +
+    // 1: - + +
+    // 2: + - +
+    // 3: + + -
+    // 4: + - -
+    // 5: - + -
+    // 6: - - + 
+    // 7: - - -
+
+    switch(segmentHash(body.position - center)){
         case 0:
-            break;
-
-        case 2:
-            break;
-        
-        case 3:
-            break;
+            return 7;
 
         case 7:
-            break;
+            return 6;
+        
+        case 3:
+            return 5;
+
+        case 2:
+            return 4;
 
         case 5:
-            break;
+            return 3;
 
         case 9:
-            break;
+            return 2;
 
         case 10:
-            break;
+            return 1;
 
         case 12:
-            break; 
+            return 0;
 
         default:
             return -1;
-            break;
     }
+}
+
+Vector graviForce(const Body &particle, const Body &source){
+    Vector relative_position = source.position - particle.position;
+    return particle.mass * source.mass * relative_position / pow(norm(relative_position), 3);
+}
+
+bool operator ==(const Body &b1, const Body &b2){
+    return b1.mass == b2.mass && b1.position == b2.position;
 }

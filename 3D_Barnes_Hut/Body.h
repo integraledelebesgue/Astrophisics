@@ -2,6 +2,8 @@
 #define BODY_H
 
 #include<array>
+#include<list>
+#include "Vector.h"
 
 using namespace std;
 
@@ -9,19 +11,24 @@ using namespace std;
 class Body{
 private:
     double mass;
-    array<double, 3> position;
+    Vector position;
 
 public:
     Body();
-    Body(double *const);
-    Body(const array<double, 4> &);
+    Body(const array<double, 4> &params);
+    Body(const double &_mass, const Vector &_position);
 
-    friend array<double, 3> gravitationForce(const Body &, const Body &);
-    friend int qualifyBody(const Body &, const array<double, 3> &);
+    Vector getPosition();
+
+    friend Body massCenter(const list<Body> &);
+    friend short int qualify(const Body &body, const Vector &center);
+    friend Vector graviForce(const Body &particle, const Body &source);
+    friend bool operator ==(const Body &, const Body &);
 };
 
-array<double, 3> gravitationForce(const Body &particle, const Body &source);
-int qualifyBody(const Body &b, const array<double, 3> &center);
-
+Body massCenter(const list<Body> &);
+short int qualify(const Body &body, const Vector &center);
+Vector graviForce(const Body &particle, const Body &source);
+bool operator ==(const Body &, const Body &);
 
 #endif

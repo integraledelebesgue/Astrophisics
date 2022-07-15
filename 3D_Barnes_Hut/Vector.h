@@ -24,15 +24,21 @@ public:
     operator array<double, 3>();
 
     friend double norm(const Vector &vec);
+    friend short int segmentHash(const Vector &vec);
     friend Vector operator -(const Vector &, const Vector &);
     friend Vector operator *(const double &, const Vector &);
+    friend Vector operator /(const Vector &vec, const double &scalar);
+    friend bool operator ==(const Vector &, const Vector &);
     friend Vector sum(const list<Vector> &);
 };
 
 
 double norm(const Vector &vec);
+short int segmentHash(const Vector &vec);
 Vector operator -(const Vector &, const Vector &);
 Vector operator *(const double &, const Vector &);
+Vector operator /(const Vector &vec, const double &scalar);
+bool operator ==(const Vector &, const Vector &);
 Vector sum(const list<Vector> &);
 
 
