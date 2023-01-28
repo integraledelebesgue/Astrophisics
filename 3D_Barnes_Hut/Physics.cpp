@@ -1,6 +1,7 @@
 #include "Vector.h"
 #include "Body.h"
 #include "Node.h"
+#include "Physics.h"
 #include<stack>
 #include<vector>
 #include<array>
